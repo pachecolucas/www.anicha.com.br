@@ -1,0 +1,37 @@
+<div style="height:7px; background: url(/img/top_shadow.png) bottom center no-repeat;"></div>
+<form class="ajax3" action="/user/password-recovery-check" method="post">
+	<table class="vertical top_box" style="width:800px;">
+		<tr>
+			<th></th><td><hr class="space" /></td>
+		</tr>
+		<tr>
+			<th colspan="2" style="text-align:center">
+				<hr class="space" />
+				<h1>Nova senha para minha conta:</h1>
+				<p>Informe e repita sua nova senha.</p>
+				
+				<input type="hidden" name="u" value="<?=$this->u?>" />
+				<input type="hidden" name="c" value="<?=$this->c?>" />
+			</th>
+		</tr>
+		<tr>
+			<th colspan="2">
+				<p style="display:none; padding:2px 5px; margin:0 100px 5px 100px; text-align:center;" class="error"></p>
+			</th>
+		</tr>
+		<tr>
+			<th>Nova senha:</th><td><input type="password" name="novo1" /></td>
+		</tr>
+		<tr>
+			<th>Repita a nova senha:</th><td><input type="password" name="novo2" /></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td style="background:none; padding-top:5px;">
+				<button class="btn" type="submit" style="float:left;">
+					<img src="/img/btn/salvar.png" alt="Salvar" />
+				</button>
+			</td>
+		</tr>
+	</table>
+</form>

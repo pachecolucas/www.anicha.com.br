@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta charset="UTF-8">
+		<meta name="keywords" content="Login" />
+		<meta name="description" content="Tela de login" />
+		<meta name="author" content="FacoSeuSite.com" />
+		<title>Login</title>		
+		<link rel="shortcut icon" href="/favicon.ico" />
+		
+		<!-- início Framework CSS BluePrint -->
+		<link rel="stylesheet" href="/lib/blueprint/screen.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="/lib/blueprint/print.css" type="text/css" media="print" />
+		<!--[if lt IE 8]><link rel="stylesheet" href="/lib/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+				
+		<!-- jQuery -->
+		<script type="text/javascript" src="/lib/jquery/jquery-1.6.4.min.js"></script>
+		<script type="text/javascript" src="/lib/jquery/jquery.form.js"></script>
+		
+		<!--CSS-->
+		<link rel="stylesheet" href="/user/epanel.css" type="text/css" />
+		
+		<script type="text/javascript">
+			$(function(){
+				$("a[rel=external]").attr("target","_blank");
+			})
+			
+			function formAjax() {
+
+				$('form.ajax').submit(function() {
+					var form = $(this);
+
+	    	        $(this).ajaxSubmit({
+
+	    	            clearForm: true, // clear all form fields after successful submit 
+	    	            
+	    	            beforeSubmit: function(formData, jqForm, options) { 
+	    	            	$(form).find(".error").slideUp() // esconde as mensangens de erro
+	    	        		form.find('button[type=submit]').after('<img src="/img/assets/ajax-loader.gif" class="loader" style="float:left" />') // exibe carregando
+	    	    			form.find('button[type=submit]').fadeOut(); // desabilita submit
+	    	        	    return true;
+	    	        	},
+	    	        	
+	    	            success: function(responseText, statusText, xhr, form) { 
+	    	        		$(location).attr('href', responseText);
+	    	            },
+	    	            
+	    	            error: function(XMLHttpRequest, textStatus, errorThrown) {
+	    	            	var responseText = XMLHttpRequest.responseText; // pega mensagem de erro
+	    	            	$(form).find(".error").html(responseText).slideDown(); // exibe o erro
+	    	            	form.find('img.loader').fadeOut('slow'); // esconde carregando
+	    	            	form.find('button[type=submit]').fadeIn(); // volta a habitar o submit
+	    	            }
+
+	    	        });
+	    	        /* End JQuery Form Plugin */
+
+	    	        return false;
+	    	    });
+
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<?=$this->layout()->content?>
+		</div>
+	</body>
+</html>

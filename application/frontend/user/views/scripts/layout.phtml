@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <?php include(FRONTEND_PATH . "/epanel/views/scripts/layout-head.phtml"); ?>
+    <body ng-app="epanel" class="<?= $this->P ?>">
+        <div class="container">
+            <div class="row">
+                <div id="conteudo" ng-cloak="">
+                    <div class="col-sm-offset-3 col-sm-6  col-md-offset-4 col-md-4 col-xs-offset-1 col-xs-10">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="bloco" style="padding:30px 0 40px 0;">
+                                    <a href="/epanel"><img src="/user/logo.png" alt="Portal Ases" class="img-responsive" style="margin:0 auto;"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="text-center">
+                                    <?= $this->layout()->content ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center" style="padding:30px 0 20px 0">
+                    <?php include(FRONTEND_PATH . "/epanel/views/scripts/footer.phtml"); ?>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function(){
+                $.backstretch("/user/bg.jpg");
+            });
+        </script>
+    </body>
+</html>

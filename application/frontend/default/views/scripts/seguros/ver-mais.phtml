@@ -1,0 +1,64 @@
+<!--<div class="mt-80 parallax" style="background-image:url('/default/images/1920-1000-normal.jpg')" data-speed="8">-->
+<style>
+    /*@media(max-width:767px){}*/
+    /*@media(min-width:768px){}*/
+    @media(min-width:992px){
+        .row-eq-height {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display:         flex;
+        }
+    }
+    @media(min-width:1200px){
+        .row-eq-height {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display:         flex;
+        }
+    }
+</style>
+<div class="mt-80 parallax" style="margin-top:0;">
+    <div class="container-fluid">
+        <div class="row row-eq-height">
+            <div class="col-md-6 col-lg-6">
+                <?= $this->partial("index/corrige-topo.phtml") ?>
+                <div style="height:65px; background: none;"></div>
+                <?php if ($this->foto) { ?>
+                    <a href="<?= $this->link ?>">
+                        <img src="<?= $this->foto ?>" alt="foto" class="img-responsive img-box" style="margin:0 auto;">
+                    </a>
+                <?php } else { ?>
+                    <img src="<?= $this->seguro->foto ?>" alt="foto" class="img-responsive img-box" style="margin:0 auto;">
+                <?php } ?>
+                <br>
+                <div class="text-center">
+                    <h3 class="heading"><?= $this->seguro->nome ?></h3>
+                    <p class="lead"><?= $this->seguro->descricao ?></p>
+                    <p><?= $this->seguro->descricaoLonga ?></p>
+                    <br>
+                    <?php foreach ($this->seguro->listas as $lista) : ?>
+                        <div style="text-align: left;">
+                            <h4><?= $lista->nome ?></h4>
+                            <ul style="list-style:none;">
+                                <?php foreach ($lista->itens as $item) : ?>
+                                    <li class="lead"><i class="fa fa-check"></i> <?= $item->nome ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                            <br>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <!--<p class="justify"><?= $this->seguro->descricao ?></p>-->
+            </div>
+            <div class="col-md-6 col-lg-6 bgcolor3">
+                <div class=" p100" style="padding-left: 25px; padding-right:25px;">
+                    <?= $this->partial("index/corrige-topo.phtml") ?>
+                    <h2 class="heading inverse">Cotação rápida <i class="fa fa-fighter-jet"></i></h2>
+                        <?= $this->seguro->id === 77 ? $this->partial("seguros/cotacao-viagem.phtml", $this) : $this->partial("seguros/cotacao.phtml", $this) ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

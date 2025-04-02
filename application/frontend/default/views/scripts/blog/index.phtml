@@ -1,0 +1,37 @@
+
+<div class="page-header">
+    <div class="container">
+        <h1 style="background-color: #FFC800">Blog Madri Seguros</h1>
+        <div class="breadcrumb-2">
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li class="active">Blog Madri Seguros</li>
+            </ul>
+        </div>
+    </div>
+</div>    
+
+<div class="container mt-80 mb-60">
+    <div class="row">
+        <div class="col-sm-8">
+            <?php foreach ($this->posts as $p) : ?>
+                <?= $this->partial("blog/item.phtml", array("post" => $p, "lista" => true)) ?>
+            <?php endforeach; ?>
+            <div class="row">
+                <div class="col-xs-6">
+                    <a class="btn btn-info" ng-if="<?= $this->offset > 0 ? 'true' : 'false' ?>" href="/blog/index/limit/<?= $this->limit ?>/offset/<?= $this->offset - $this->limit ?>"><i class="fa fa-angle-left"></i> Recentes</a>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <a class="btn btn-info" ng-if="<?= $this->total >= $this->offset + $this->limit ? 'true' : 'false' ?>" href="/blog/index/limit/<?= $this->limit ?>/offset/<?= $this->offset + $this->limit ?>">Anteriores <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <aside class="sidebar">
+                <div class="widget">
+                    <?= $this->partial("blog/list.phtml", $this) ?>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>

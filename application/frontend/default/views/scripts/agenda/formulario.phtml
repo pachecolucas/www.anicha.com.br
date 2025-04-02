@@ -1,0 +1,99 @@
+<div class="contact-home-form">
+    <script type="text/javascript">
+        function InteresseCtrl($scope) {
+            $scope.interesse = {
+                via: 'Site Anicha',
+                calendario: <?= $this->evento->id ?>
+            };
+            $scope.loading = false;
+            $scope.sent = false;
+            $scope.onSubmit = function (config) {
+                console.log("ContatoCtrl::$onSubmit(config)");
+                console.log(config);
+                $scope.loading = true;
+            };
+            $scope.onSuccess = function (result) {
+                console.log("ContatoCtrl::$onSuccess(result)");
+                console.log(result);
+                $scope.loading = false;
+                $scope.sent = true;
+            };
+            $scope.onErrors = function (errors) {
+                console.log("ContatoCtrl::$onErrors(errors)");
+                console.log(errors);
+                $scope.loading = false;
+            };
+            $scope.onFail = function (e) {
+                console.log("ContatoCtrl::$onFail(e)");
+                console.log(e);
+                $scope.loading = false;
+                alert("Um erro inesperado aconteceu. Por favor, informe o responsável pelo sistema.");
+            };
+        }
+    </script>
+    <div ng-controller="InteresseCtrl">
+        <form ef-post-external="interesse" action="https://meu.epanel.com.br/external-especial/agenda-inscricao/salvar" method="post" class="assan-contact">
+            <div ng-show="sent" class="text-center">
+                <h4 style="padding: 90px 0;">
+                    Obrigado, {{interesse.nome}}.<br>
+                    <small style="color:#777">Seu interesse neste evento foi registrado.<br>Logo entraremos em contato.</small>
+                </h4>
+            </div>
+            <div ng-show="!sent">
+                <?php if ($this->evento->linkPgto) { ?>
+                    <div style="text-align:center;">
+                        <p>
+                            <a href="<?= $this->evento->linkPgto ?>" class="btn btn-lg btn-block btn-info">
+                                <small style='display:block;'>Clique aqui para comprar seu ingresso.</small>
+                                <span class="lead">GARANTA SUA VAGA!</span>
+                            </a>
+                        </p>
+                        <p>Ou tire suas dúvidas através do formulário de interesse:</p>
+                    </div>
+                <?php } else { ?>
+                    <p>Informe seu nome, email e telefone abaixo. Nós entraremos em contato.</p>
+                <?php } ?>
+                <div class="row">
+                    <div class="col-sm-12"> 
+                        <div class="control-group">
+                            <div class="form-group controls {{errors.inscricaoNome?'has-error':''}}">
+                                <p class="badge badge-danger" ng-if="errors.inscricaoNome" style="margin:0;"><i class="fa fa-warning"></i> {{errors.inscricaoNome.message}}</p>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="background:#EDB8B9; color:white; font-weight: normal; width:85px;">Nome</span>
+                                    </div>
+                                    <input ng-model="interesse.nome" type="text" name="name" class="form-control" placeholder="Seu nome completo aqui" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group controls {{errors.inscricaoEmail?'has-error':''}}">
+                            <p class="badge badge-danger" ng-if="errors.inscricaoEmail" style="margin:0;"><i class="fa fa-warning"></i> {{errors.inscricaoEmail.message}}</p>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" style="background:#EDB8B9; color:white; font-weight: normal; width:85px;">Email</span>
+                                </div>
+                                <input ng-model="interesse.email" type="text" name="email" class="form-control" placeholder="Seu email principal..." />
+                            </div>
+                        </div>
+                        <div class="form-group controls {{errors.inscricaoTelefone?'has-error':''}}">
+                            <p class="badge badge-danger" ng-if="errors.inscricaoTelefone" style="margin:0;"><i class="fa fa-warning"></i> {{errors.inscricaoTelefone.message}}</p>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" style="background:#EDB8B9; color:white; font-weight: normal; width:85px;">Telefone</span>
+                                </div>
+                                <input ng-model="interesse.telefone" type="text" name="phone" class="form-control" placeholder="Telefone com DDD..." />
+                            </div>
+                        </div>
+                        <div class="form-group controls {{errors.inscricaoMsg?'has-error':''}}">
+                            <p class="help-block" ng-if="errors.inscricaoMsg" style="margin:0;"><i class="fa fa-warning"></i> {{errors.inscricaoMsg.message}}</p>
+                            <textarea ng-model="interesse.msg" name="message" class="form-control" rows="3" placeholder="Mensagem (opcional)..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" name="submit" class="btn btn-primary btn-block" ng-disabled="loading"><i ng-if="loading" class="fa fa-spin fa-spinner"></i> {{loading?'Enviando. Aguarde...':'Enviar meus dados'}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

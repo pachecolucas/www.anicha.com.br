@@ -1,0 +1,13 @@
+<div class="col-sm-12">
+    <div class="bloco-form bg-white" ng-controller="EntityCtrl" ng-init="init({entity:'user', listable: false})">
+        <h3 style="font-weight: bold; text-shadow: 1px 1px 1px white; margin-top:0;">Ops...<br>
+            <small>
+                <?= $this->errorMessage ?>
+            </small>
+        </h3>
+        <div class="buttons">
+            <a class="btn" href="/epanel">Cancelar</a>
+            <a class="btn btn-warning" href="/user/pass/forgot" style="color:white">Tentar novamente</a>
+        </div>
+    </div>
+</div>

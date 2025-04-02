@@ -1,0 +1,23 @@
+<?= $this->partial("index/corrige-topo.phtml") ?>
+<div class="container mt-80 mb-80">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="heading-block" style="z-index: 1;">
+                <h2 class="heading">para <span class="color1">você</span></h2>
+                <p class="sub-heading">As melhores e mais práticas soluções para seguros de pessoas físicas.</p>
+            </div>
+            <?php foreach ($this->seguros as $s) : ?>
+                <?= $s->tipo && $s->tipo->id === 1 ? $this->partial("seguros/index-item.phtml", array("s" => $s)) : null ?>
+            <?php endforeach; ?>
+        </div>	
+        <div class="col-sm-6">
+            <div class="heading-block" style="z-index: 1;">
+                <h2 class="heading">para <span class="color1">seu negócio</span></h2>
+                <p class="sub-heading">As melhores e mais práticas soluções para seguros de pessoas jurídicas.</p>
+            </div>	
+            <?php foreach ($this->seguros as $s) : ?>
+                <?= $s->tipo && $s->tipo->id === 2 ? $this->partial("seguros/index-item.phtml", array("s" => $s)) : null ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<script>
+    function ContatoProdutoCtrl($scope) {
+        $scope.loading = false;
+        $scope.sent = false;
+        $scope.onSubmit = function (config) {
+            console.log("ContatoCtrl::$onSubmit(config)");
+            console.log(config);
+            $scope.loading = true;
+        };
+        $scope.onSuccess = function (result) {
+            console.log("ContatoCtrl::$onSuccess(result)");
+            console.log(result);
+            $scope.loading = false;
+            $scope.sent = true;
+        };
+        $scope.onErrors = function (errors) {
+            console.log("ContatoCtrl::$onErrors(errors)");
+            console.log(errors);
+            $scope.loading = false;
+        };
+        $scope.onFail = function (e) {
+            console.log("ContatoCtrl::$onFail(e)");
+            console.log(e);
+            $scope.loading = false;
+            alert("Um erro inesperado aconteceu. Por favor, informe o responsável pelo sistema.");
+        };
+    }
+</script>
+<section ng-controller="ContatoProdutoCtrl">
+    <div ng-show="sent" style="padding-top: 250px; text-align: center;">
+        <h3>Obrigado, {{contato.nome}}!</h3>
+        <p class="lead">Seu interesse foi registrado e logo entraremos em contato.</p>
+    </div>
+    <div ng-show="!sent">
+        <p>
+            Preencha os dados abaixo para registrar seu interesse numa vaga:
+        </p>
+        <div class="smart-wrap">
+            <div class="smart-forms smart-container">
+                <form method="post" ef-post="contato" action="/index/contato" id="smart-form">
+                    <div class="form-body">
+
+                        <div class="section">
+                            <label class="field prepend-icon">
+                                <input ng-model="contato.nome" type="text" name="sendername" id="sendername" class="gui-input" placeholder="Nome aqui">
+                                <span class="field-icon"><i class="fa fa-user"></i></span>  
+                            </label>
+                            <p class="help-block text-danger" ng-show="errors.contatoNome"><i class="fa fa-exclamation-circle"></i> {{errors.contatoNome.message}}</p>
+                        </div><!-- end section -->
+
+                        <div class="section">
+                            <label class="field prepend-icon">
+                                <input ng-model="contato.email" type="email" name="emailaddress" id="emailaddress" class="gui-input" placeholder="Email aqui">
+                                <span class="field-icon"><i class="fa fa-envelope"></i></span>
+                            </label>
+                            <p class="help-block text-danger" ng-show="errors.contatoEmail"><i class="fa fa-exclamation-circle"></i> {{errors.contatoEmail.message}}</p>
+                        </div><!-- end section -->
+
+                        <div class="section">
+                            <label class="field prepend-icon">
+                                <input ng-model="contato.telefone" type="text" name="sendersubject" id="sendersubject" class="gui-input" placeholder="Telefone aqui">
+                                <span class="field-icon"><i class="fa fa-phone-square"></i></span>
+                            </label>
+                            <p class="help-block text-danger" ng-show="errors.contatoTelefone"><i class="fa fa-exclamation-circle"></i> {{errors.contatoTelefone.message}}</p>
+                        </div><!-- end section -->
+
+                        <div class="section">
+                            <label class="field prepend-icon">
+                                <textarea ng-model="contato.mensagem" class="gui-textarea" id="sendermessage" name="sendermessage" placeholder="Tire suas dúvidas (opcional)"></textarea>
+                                <span class="field-icon"><i class="fa fa-comments"></i></span>
+                                <!--<span class="input-hint"> <strong>Hint:</strong> Please enter between 80 - 300 characters.</span>-->   
+                            </label>
+                            <p class="help-block text-danger" ng-show="errors.contatoMensagem"><i class="fa fa-exclamation-circle"></i> {{errors.contatoMensagem.message}}</p>
+                        </div><!-- end section -->
+                    </div><!-- end .form-body section -->
+                    <div class="form-footer">
+                        <button type="submit" ng-disabled="loading" class="button btn btn-primary">{{loading?'Enviando. Aguarde...':'ENVIAR MENSAGEM'}}</button>
+                    </div><!-- end .form-footer section -->
+                </form>
+            </div><!-- end .smart-forms section -->
+        </div><!-- end .smart-wrap section -->
+    </div>
+</section>

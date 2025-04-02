@@ -1,0 +1,156 @@
+<?= $this->partial("index/corrige-topo.phtml") ?>
+<div class="container mt-80">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="bgcolor1 p40">
+                <div class="call-out-2 text-center">
+                    <i class="hidden-xs fa fa-phone-square"></i>
+                    <div class="call-us"><strong class="inverse text-capitalize font20">Ligue agora!</strong>
+                        <div style="font-weight: normal; line-height: 1.1em; font-size: 0.8em;">
+                            <?php foreach ($this->telefones as $t) : ?>
+                                <span style="white-space: nowrap"><?= $t ?></span>
+                                <?php if ($t !== end($this->telefones)) : ?>
+                                    <span class="hidden-xs hidden-sm hidden-md">/</span>
+                                    <br class="hidden-lg">
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12"><div class="mt-20"></div></div>
+        <div class="col-sm-5 mt-20">
+            <h3 class="heading">Contato</h3>
+            <p class="justify">
+                Faça uma vista em nossa sede em Blumenau ou utilize nossos telefones e emails de contato.
+                Nossa missão oferecer produtos para que você possa usufuir com tranquilidade do seu patrimônio.
+            </p>
+            <br/>
+            <address>
+                <strong>Rua das Missões, 378 - Sala 107</strong><br>
+                Ponta Aguda - Blumenau, SC<br>
+                CEP 89051-000
+            </address>
+            <ul class="contact-list contact-list-2x">
+                <li>
+                    <i class="fa fa-phone"></i> 
+                    <div style="margin-left:50px;">
+                        <?php foreach ($this->telefones as $t) : ?>
+                            <span style="white-space: nowrap"><?= $t ?></span>
+                            <br>
+                        <?php endforeach; ?>
+                    </div>
+                </li>
+                <li>
+                    <i class="fa fa-envelope"></i> <?= EMAIL ?>
+                </li>
+            </ul>
+            <p><b>Horário de funcionamento:</b><br>Manhã: 08:15 às 12:00<br>Tarde: 13:30 às 17:30</p>
+            <br/>
+            <ul class="social social-2x">
+                <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                <li><a href=""><i class="fa fa-vimeo"></i></a></li>
+            </ul>
+        </div>
+        <div class="col-sm-6 col-sm-offset-1 mt-20">
+            <!--contact section-->
+            <section>
+                <style>
+                    /*.form-contact .form-group { margin:0; }*/
+                </style>
+                <script type="text/javascript">
+                    function ContatoCtrl($scope) {
+                        $scope.contato = {};
+                        $scope.loading = false;
+                        $scope.sent = false;
+                        $scope.onSubmit = function (config) {
+                            console.log("ContatoCtrl::$onSubmit(config)");
+                            console.log(config);
+                            $scope.loading = true;
+                        };
+                        $scope.onSuccess = function (object) {
+                            console.log("ContatoCtrl::$onSuccess(object)");
+                            console.log(object);
+                            $scope.loading = false;
+                            $scope.sent = true;
+                        };
+                        $scope.onErrors = function (errors) {
+                            console.log("ContatoCtrl::$onErrors(errors)");
+                            console.log(errors);
+                            $scope.loading = false;
+                        };
+                        $scope.onFail = function (e) {
+                            console.log("ContatoCtrl::$onFail(e)");
+                            console.log(e);
+                            $scope.loading = false;
+                            alert("Um erro inesperado aconteceu. Por favor, informe o responsável pelo sistema.");
+                        };
+                    }
+                </script>
+                <div ng-controller="ContatoCtrl" id="form-contato">
+                    <div class="divide30"></div>
+                    <div class="form-contact">
+                        <form ef-post="contato" action="/contato/enviar" name="sentMessage" method="post">
+                            <div ng-show="sent" class="text-center">
+                                <h1 style="color:#F2BF10; padding: 150px 0 50px 0;">
+                                    Obrigado, {{contato.nome}}!<br>
+                                    <small style="color:#777">Sua mensagem foi enviada.<br>Entraremos em contato.</small>
+                                </h1>
+                            </div>
+                            <div ng-show="!sent">
+                                <h3 class="heading" style="text-transform: none;">Envie sua mensagem.<br><span class="color1">Será um prazer atendê-lo.</span></h3>
+                                <div class="control-group">
+                                    <div class="form-group controls {{errors.contatoNome?'has-error':''}}">
+                                        <small class="helping-text" ng-if="errors.contatoNome" style="font-weight: normal; color:#B00;"><i class="fa fa-warning"></i> {{errors.contatoNome.message}}</small>
+                                        <div class="input-group input-group-lg" style="z-index:0;">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input name="name" type="text" ng-model="contato.nome" class="form-control" placeholder="Seu Nome...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group controls {{errors.contatoEmail?'has-error':''}}">
+                                        <small class="helping-text" ng-if="errors.contatoEmail" style="font-weight: normal; color:#B00;"><i class="fa fa-warning"></i> {{errors.contatoEmail.message}}</small>
+                                        <div class="input-group input-group-lg" style="z-index:0;">
+                                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                            <input name="email" type="text" ng-model="contato.email" class="form-control" placeholder="seu email...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group controls {{errors.contatoTelefone?'has-error':''}}">
+                                        <small class="helping-text" ng-if="errors.contatoTelefone" style="font-weight: normal; color:#B00;"><i class="fa fa-warning"></i> {{errors.contatoTelefone.message}}</small>
+                                        <div class="input-group input-group-lg" style="z-index:0;">
+                                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                            <input name="telefone" type="text" ng-model="contato.telefone" class="form-control" placeholder="Seu Telefone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group controls {{errors.contatoMensagem?'has-error':''}}">
+                                        <small class="helping-text" ng-if="errors.contatoMensagem" style="font-weight: normal; color:#B00;"><i class="fa fa-warning"></i> {{errors.contatoMensagem.message}}</small>
+                                        <div class="input-group input-group-lg" style="z-index:0;">
+                                            <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                            <textarea rows="5" style="height: 150px;" ng-model="contato.mensagem" class="form-control" placeholder="Escreva uma mensagem..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="form-group">
+                                        <button type="submit" name="button" class="btn btn-warning btn-lg btn-block" ng-disabled="loading"><i ng-if="loading" class="fa fa-spin fa-spinner"></i> {{loading?'Enviando. Aguarde...':'ENVIAR MENSAGEM'}}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!--contact form-->
+                </div>
+            </section>
+            <!--end contact section-->
+        </div>
+    </div>
+    <br>
+    <br>
+</div>

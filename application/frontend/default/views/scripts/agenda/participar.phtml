@@ -1,0 +1,18 @@
+<div class="container-fluid" style="border-top:1px solid #CCC; background:#F5F5F5;">
+    <div class="row">
+        <div class="col-md-6 no-padding">
+            <!--<h2 class="mb20 font300 text-center">Agenda Anicha</h2>-->
+            <img src="<?= $this->evento->hasFlyer ? $this->evento->flyer : $this->evento->evento->flyer ?>" alt="" style="width:100%">
+        </div>
+        <div class="col-md-6 text-center" style="padding-top:15px;">
+            <h3 class="" style='color:#999'>
+                <small>{{'<?= $this->evento->data ?>'|date}} <i class="fa fa-clock-o"></i> {{'<?= $this->evento->datahora ?>'|date:'HH:mm'}}</small><br>
+                <?= $this->evento->evento->titulo ?>
+                <small><i style="display:block;"><?= $this->evento->evento->subtitulo ?></i></small>
+            </h3>
+            <?= $this->partial("agenda/formulario.phtml", $this) ?>
+        </div>
+    </div>
+</div>
+<?= $this->partial("agenda/evento.phtml", array("evento" => $this->evento->evento)) ?>
+

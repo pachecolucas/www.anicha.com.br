@@ -1,0 +1,74 @@
+<?=$this->partial("index/_slider.phtml", $this)?>
+
+<div class="container pt90 pb60">
+    <div class="row pb50">
+        <div class="col-md-12 mr-auto ml-auto text-center">
+            <h2 class="font300 h1">
+                Bem vindo ao <span class="text-primary">Anicha</span>
+            </h2>
+            <p class="lead">
+                Um conjunto de seis letras que sintetizam uma filosofia integradora de vida.<br>
+                Na língua hindi Anicha significa "impermanência". Portanto, Anicha é aceitar e fluir com a vida e suas transformações sem resistir ou brigar com elas, admitindo que a única certeza é a mudança. Nosso trabalho e missão consiste em levar até as pessoas maneiras poderosas de aproveitar cada presente que a vida nos dá através da promoção do auto-conhecimento e da cura profunda, para além dos limites do corpo. Por isso, organizamos um espaço capaz de abrigar as melhores técnicas e os melhores profissionais que conhecemos ao longo da nossa jornada. Venha conhecer! Você é o ingrediente principal e a razão da existência deste movimento.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <?php foreach ($this->chamadas2 as $c): ?>
+            <div class="col-md-4 mb30 text-center">
+                <a href="<?=$c[3]?>"><img src="<?=$c[2]?>" alt="" class="img-fluid img-circle mb20"></a>
+                <h4 style="text-transform: uppercase"><a href="<?=$c[3]?>"><?=$c[0]?></a></h4>
+                <p class="lead">
+                    <?=$c[1]?>
+                </p>
+            </div>
+        <?php endforeach;?>
+    </div>
+</div>
+<div class="dzsparallaxer auto-init height-is-based-on-content "  data-options='{   direction: "reverse"}'>
+    <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%; background-image: url(/template/images/bg8.jpg)">
+    </div>
+    <div class="semi-black-overlay"></div>
+    <div class="container pt100 pb100">
+        <div class="row pb50">
+            <div class="col-md-8 mr-auto ml-auto">
+                <h3 class="h1 text-center font300 text-white">Acompanhe os próximos eventos Anicha...</h3>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="/agenda" class="btn btn-white-outline btn-lg">Ver agenda</a>
+        </div>
+    </div>
+    <div class="dzsprxseparator--2triangles"></div>
+</div><!--parallax-->
+
+<div class="container pt90 pb60">
+    <div class="row align-items-center">
+        <div class="col-md-5 mb30">
+            <img src="/template/images/about.jpg" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-6 offset-md-1 mb30">
+            <?=$this->partial("index/newsletter.phtml", $this)?>
+        </div><!--/div-->
+    </div>
+</div>
+<div class="bg-dark pt90 pb60">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-md-5 mb30">
+
+                <h2 class="mb30 text-white"><i class="icon-gift fa-1x"></i> Nossos Serviços</h2>
+                <p class="lead text-white-gray">
+                    Conheça tudo que o Anicha pode fazer por você. São várias opções de <a href="/holopraxis">atividades semanais</a> em grupo, <a href="/atendimento">atendimentos terapêuticos</a> pessoais e até <a href="/formacao">formações acadêmicas</a> na área.
+                </p><br>
+                <a href="/servicos" class="btn btn-lg btn-white-outline">Ver todos os Serviços</a>
+            </div>
+            <div class="col-md-7 mb30">
+                <img src="/template/images/g7.jpg" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="/formacao/tti" class="btn btn-block btn-primary pt40 pb40 btn-lg">Pós-graduação em Terapias Transpessoais Integrativas</a>

@@ -1,0 +1,54 @@
+/*
+Dropdown menu styles
+*/
+
+.dropdown-menu{
+        box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.08);
+    -webkit-box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.08);
+    min-width: 12rem;
+    background-color:#222;
+    border:0px;
+    padding:1rem .0rem;
+   border-radius: 0px;
+}
+.dropdown-menu .dropdown-item{
+    font-weight:400;
+    font-size: .95rem;
+    color:rgba(#fff,.6);
+    font-family: $base-font;
+    text-transform:capitalize;
+    &:hover,&:focus,&:active{
+        color:rgba(#fff,1);
+        background-color: transparent;
+    }
+}
+
+// Mega menu canvas
+@media(min-width:992px){
+    .dropdown-menu,.dropdown-submenu .dropdown-menu {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1;
+        -moz-transform: translateY(8px);
+        -o-transform: translateY(8px);
+        -ms-transform: translateY(8px);
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px);
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        -ms-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s;
+    }
+    .show>.dropdown-menu,.dropdown-submenu:hover>.dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1000;
+        -moz-transform: none;
+        -o-transform: none;
+        -ms-transform: none;
+        -webkit-transform: none;
+        transform: none;
+    }
+}

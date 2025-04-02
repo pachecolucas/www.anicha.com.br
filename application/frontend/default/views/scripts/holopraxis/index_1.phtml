@@ -1,0 +1,27 @@
+<div class="dzsparallaxer auto-init height-is-based-on-content "  data-options='{   direction: "reverse"}'>
+    <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%; background-image: url(/template/images/bg27.jpg)">
+    </div>
+    <div class="semi-black-overlay"></div>
+    <div class="container pt100 pb100">
+        <div class="row">
+            <div class="col-md-8 mr-auto ml-auto text-center">
+                <h3 class="h1 font300 text-white">Holopráxis</h3>
+                <p class="lead text-white-gray">Atividades semanais em grupos</p>
+            </div>
+        </div>
+    </div>
+    <div class="dzsprxseparator--2triangles"></div>
+</div>
+<div class="container pt90 pb80">
+    <div class="row">
+        <?php foreach ($this->servicos as $s) { ?>
+            <div class="col-sm-6 col-md-6 col-lg-3 mb40 text-center">
+                <a href="<?= $s->link1 ?>" style="line-height:1.4em">
+                    <img src="<?= $s->flyer ?>" alt="" class="img-fluid">
+                    <small style="text-transform: uppercase;"><?= $s->tipo->nome ?></small>
+                    <span class="lead" style="display:block"><?= $s->titulo ?></span>
+                </a>
+            </div>
+        <?php } ?>
+    </div>
+</div>

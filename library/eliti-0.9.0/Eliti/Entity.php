@@ -1,0 +1,5 @@
+<?
+
+class Eliti_Entity {
+
+}

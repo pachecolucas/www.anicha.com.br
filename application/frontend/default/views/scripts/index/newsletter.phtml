@@ -1,0 +1,67 @@
+<script type="text/javascript">
+    function NewsletterCtrl($scope) {
+
+        $scope.inscricao = {
+            entity: 14
+        };
+        $scope.loading = false;
+        $scope.sent = false;
+        $scope.onSubmit = function (config) {
+            console.log("NewsletterCtrl::$onSubmit(config)");
+            console.log(config);
+            $scope.loading = true;
+        };
+        $scope.onSuccess = function (object) {
+            console.log("NewsletterCtrl::$onSuccess(object)");
+            console.log(object);
+            $scope.loading = false;
+            $scope.sent = true;
+        };
+        $scope.onErrors = function (errors) {
+            console.log("NewsletterCtrl::$onErrors(errors)");
+            console.log(errors);
+            $scope.loading = false;
+        };
+        $scope.onFail = function (e) {
+            console.log("NewsletterCtrl::$onFail(e)");
+            console.log(e);
+            $scope.loading = false;
+            alert("Um erro inesperado aconteceu. Por favor, informe o responsável pelo sistema.");
+        };
+    }
+</script>
+
+<section ng-controller="NewsletterCtrl" ng-cloak="">
+    <div ng-show="sent" class="text-center">
+        <h2  style="color:#F4C54A">
+            Obrigado!<br>
+            <small>Sua inscrição foi efetivada.<br><i class="fa fa-thumbs-up"></i></small>
+        </h2>
+    </div>
+    <div ng-show="!sent">
+        <h3 class="font300 mb20 h2">Inscreva-se e receba promoções <span class="text-primary">exclusivas</span></h3>
+        <p>
+            Para saber em primeira mão e receber oportunidades e descontos exclusivos do Anicha informe seu nome e email abaixo...
+        </p><br>
+        <form ef-post-external="inscricao" action="https://meu.epanel.com.br/external-especial/newsletter/inscricao" method="post">
+            <div class="row">
+                <div class="col-sm-6">
+                    <input ng-model="inscricao.nome" type="text" class="form-control form-control-lg" placeholder="Nome aqui">
+                    <small class="helping-text" ng-if="errors.inscricaoNome" style="font-weight: normal; color:#FFC43F;"><i class="fa fa-warning"></i> {{errors.inscricaoNome.message}}</small>
+                    <div class="mb20"></div>
+                </div>
+                <div class="col-sm-6">
+                    <input ng-model="inscricao.email" type="email" class="form-control form-control-lg" placeholder="Email  aqui">
+                    <small class="helping-text" ng-if="errors.inscricaoEmail" style="font-weight: normal; color:#FFC43F;"><i class="fa fa-warning"></i> {{errors.inscricaoEmail.message}}</small>
+                    <div class="mb20"></div>
+                </div>
+                <div class="col-md-6">
+                    <span><small>Não enviamos spam.</small></span>
+                </div>
+                <div class="col-md-6 text-right">
+                    <button type="submit" ng-disabled="loading" class="btn btn-outline-secondary btn-block">Inscrever-se</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

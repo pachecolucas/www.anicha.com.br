@@ -1,0 +1,98 @@
+<section>
+    <style>
+        /*.form-contact .form-group { margin:0; }*/
+    </style>
+    <script type="text/javascript">
+        function CotacaoCtrl($scope) {
+            $scope.loading = false;
+            $scope.sent = false;
+            $scope.onSubmit = function (config) {
+                console.log("CotacaoCtrl::$onSubmit(config)");
+                console.log(config);
+                $scope.loading = true;
+            };
+            $scope.onSuccess = function (object) {
+                console.log("CotacaoCtrl::$onSuccess(object)");
+                console.log(object);
+                $scope.loading = false;
+                $scope.sent = true;
+            };
+            $scope.onErrors = function (errors) {
+                console.log("CotacaoCtrl::$onErrors(errors)");
+                console.log(errors);
+                $scope.loading = false;
+            };
+            $scope.onFail = function (e) {
+                console.log("CotacaoCtrl::$onFail(e)");
+                console.log(e);
+                $scope.loading = false;
+                alert("Um erro inesperado aconteceu. Por favor, informe o responsável pelo sistema.");
+            };
+
+            // principal condutor
+            var principalSim = {id: 1, nome: 'Principal condutor', resposta: 'SIM'};
+            var principalNao = {id: 2, nome: 'Não é o principal condutor', resposta: 'NÃO'};
+            $scope.tiposDeCondutores = [principalSim, principalNao];
+
+            // tipo de pessoa
+            var pFisica = {id: 1, nome: 'Pessoa Física'};
+            var pJuridica = {id: 2, nome: 'Pessoa Jurídica'};
+            $scope.pessoas = [pFisica, pJuridica];
+
+            // estado civil
+            $scope.civis = ['Solteiro', 'Casado', 'Viúvo'];
+
+            // nascimento
+            $scope.nascDias = [];
+            for (var dia = 1; dia <= 31; dia++) {
+                $scope.nascDias.push(dia);
+            }
+            $scope.nascMeses = [];
+            for (var mes = 1; mes <= 12; mes++) {
+                $scope.nascMeses.push(mes);
+            }
+            $scope.nascAnos = [];
+            var anoAtual = (new Date()).getYear();
+            anoAtual < 1000 ? anoAtual = anoAtual + 1900 : null;
+            for (var ano = anoAtual - 100; ano <= anoAtual - 17; ano++) {
+                $scope.nascAnos.push(ano);
+            }
+
+            /**
+             * COTAÇÃO
+             */
+            $scope.cotacao = {
+                pessoa: <?= $this->seguro->tipo->id === 1 ? 'pFisica' : 'pJuridica' ?>,
+                produtoId: <?= $this->seguro ? $this->seguro->id : 0 ?>,
+                produtoNome: '<?= $this->seguro->nome ?> (<?= $this->seguro->tipo->nome ?>)',
+                condutor: principalSim
+            };
+        }
+    </script>
+    <div ng-controller="CotacaoCtrl" id="form-contato">
+        <div class="divide30"></div>
+        <div class="form-contact">
+            <form ef-post="cotacao" action="/seguros/cotacao-rapida" name="sentMessage" method="post">
+                <div ng-show="sent" class="text-center">
+                    <h1 style="color:#F2BF10; padding: 150px 0 50px 0;">
+                        Obrigado, {{contato.nome}}!<br>
+                        <small style="color:#777">Seus dados foram enviados.<br>Entraremos em contato.</small>
+                    </h1>
+                </div>
+                <div ng-show="!sent">
+                    <?= $this->partial("seguros/cotacao-segurado.phtml", $this) ?>
+                    <br>
+                    <?= $this->partial("seguros/cotacao-veiculo.phtml", $this) ?>
+                    <section id="cotacaoSubmit" class="row">
+                        <div class="control-group col-sm-12 text-center">
+                            <div class="form-group">
+                                <button type="submit" name="button" class="btn btn-warning btn-lg btn-block" ng-disabled="loading"><i ng-if="loading" class="fa fa-spin fa-spinner"></i> {{loading?'Enviando. Aguarde...':'ENVIAR MENSAGEM'}}</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </form>
+        </div><!--contact form-->
+        <div class="alert alert-warning">cotacao: {{cotacao}}</div>
+    </div>
+</section>

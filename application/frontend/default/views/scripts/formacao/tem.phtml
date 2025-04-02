@@ -1,0 +1,235 @@
+<style>
+.info {
+    padding: 1rem 0;
+    color: #777;
+}
+.info.info1 {
+    background: #41308F;
+    color: white;
+}
+.info.info1 h3 {
+    color: rgba(255,255,255,0.7);
+}
+
+.info.info2 {
+    background: #eee;
+    color: #666;
+}
+
+.encontros {
+    font-size: 1rem;
+}
+.encontros .encontro { 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "number date teacher"
+        "title title title"
+        "subtitle subtitle subtitle";
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.8rem;
+    align-items: center;
+    margin-bottom: 0.4rem;
+}
+.encontros .encontro:nth-child(odd) {
+    background: rgba(255,255,255,0.05);
+}
+.encontros .encontro .number { grid-area: number; text-transform: uppercase; }
+.encontros .encontro .date { grid-area: date; text-align: center; }
+.encontros .encontro .title { grid-area: title; font-size:1.2rem; font-weight: bold; color: rgba(255,255,255,0.9); }
+.encontros .encontro .subtitle { grid-area: subtitle; font-size:1rem; font-weight: 300; margin-top: -0.3rem; }
+.encontros .encontro .teacher{ grid-area: teacher; text-align: right; }
+
+@media (min-width: 768px) {
+    .encontros .encontro { 
+        grid-template-columns: 1fr 5fr 1fr 1fr;
+        grid-template-areas:
+            "number title teacher date"
+            "number subtitle teacher date";
+    }
+    .encontros .encontro .number { }
+    .encontros .encontro .date { text-align: right; }
+    .encontros .encontro .title { }
+    .encontros .encontro .subtitle { }
+    .encontros .encontro .teacher{ text-align: center; }
+}
+
+.head {
+    background-image: url(/default/images/tem/bg.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+.head img {
+    max-width: 40rem;
+}
+
+</style>
+<div class="head">
+    <div class="container pt60 pb60">
+        <div class="row">
+            <div class="col-sm-12">
+                <img src="/default/images/tem/head-txt.svg" alt="evento tem" style="width: 100%">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="info">
+    <div class="container pt40 pb40">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Para quem é este curso?</h3>
+                <p class="lead">
+                    O curso livre de <strong>Terapias Energéticas Multidimensionais</strong> é direcionado a pessoas em busca de autoconhecimento, especialmente para quem trabalha com terapias holísticas.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info info1">
+    <div class="container pt40">
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="lead">
+                Este projeto insere-se em um novo panorama da Saúde Pública no Brasil: a inserção de
+                Práticas Integrativas e Complementares, estimulada pelas políticas do Ministério da
+                Saúde, em especial pela Portaria N.o 971 de 3 de Maio de 2006 que aprovou a Política
+                Nacional de Práticas Integrativas e Complementares (PNPIC) no SUS.</p>
+                <p>Cada vez mais profissionais da área da saúde recorram para o uso de técnicas de
+                terapias e práticas integrativas, agregando novas ferramentas de trabalho. A inserção
+                de uma dimensão sutil/espiritual como parte indissociável do ser humano abre portas
+                para encontrar novas vias de cura e autocura para médicos, terapeutas e cuidadores de
+                todos os níveis.</p>
+                <p>O nosso curso de terapias energéticas busca apresentar e oferecer aos alunos algumas
+                das técnicas mais avançadas no segmento da psicologia transpessoal.
+                </p>
+                <?=$this->partial("formacao/tem-btn.phtml", $this)?>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="info">
+    <div class="container pt90 pb40">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Objetivos</h3>
+                <p class="lead">
+                Este curso de atualização profissional tem como objetivo trazer ao terapêuta e
+                cuidador uma visão mais ampla da saúde com inclusão do ramo mais recente das
+                psicologia: a visão holística do ser humano. Serão abordados fundamentos de técnicas
+                alternativas e complementares às psicoterapias convencionais.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="info info2">
+    <div class="container pt40 pb40">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Pré-requisitos</h3>
+                <!-- <p class="lead">
+                    <i class="fa fa-arrow-right"></i> Conhecimento básico de psicologia e/ou psicoterapia;
+                </p>
+                <p class="lead">
+                    <i class="fa fa-arrow-right"></i> Graduação ou formação em andamento nas áreas da saúde humana (psicologia, psicoterapia, enfermagem e terapias complementares;
+                </p> -->
+                <p class="lead">
+                    <i class="fa fa-arrow-right"></i> Interesse em conhecer as técnicas mais aplicadas no ramo das terapias transpessoais integrativas.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info">
+    <div class="container pt40 pb40">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Certificado</h3>
+                <p class="lead">
+                    Para os inscritos deste curso com presença de, no mínimo, 90% nos períodos dos módulos será emitido um Certificado do Espaço Anicha.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info info1">
+    <div class="container pt40">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Módulos</h3>
+                <div class="encontros">
+                    <?php foreach($this->encontros as $key => $e) : ?>
+                    <div class="encontro">
+                        <div class="number">Módulo #<?=$key+1?></div>
+                        <!-- <div class="date">{{'<?=$e->date?>'|date}}</div> -->
+                        <div class="teacher"><?=$e->teacher?></div>
+                        <div class="title"><?=$e->title?></div>
+                        <div class="subtitle"><?=$e->subtitle?></div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+                <?=$this->partial("formacao/tem-btn.phtml", $this)?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info">
+    <div class="container pt90 pb40">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Por que fazer este curso?</h3>
+                <p class="lead">
+                    <i class="fa fa-arrow-right"></i> Apresentaremos teoria e técnicas na área da psicoterapia transpessoal com foco em terapias energéticas e aplicáveis na sua rotina de atendimentos;
+                </p>
+                <p class="lead">
+                    <i class="fa fa-arrow-right"></i> Além do aprendizado teórico, promove insights valiosos de autoconhecimentos através de vivências e partilhas;
+                </p>
+                <p class="lead">
+                    <i class="fa fa-arrow-right"></i> Através do trabalho em grupo vamos formar uma rede de terapeutas permitindo a troca de experiências durante e depois do período do curso.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info info1">
+    <div class="container pt40">
+        <div class="row">
+            <div class="col-md-6 mb20">
+                <h3>Modo de trabalho</h3>
+                <p class="lead">Curso integral à distância</p>
+                <p>Videoconferências utilizando a plataforma <strong>ZOOM</strong></p>
+            </div>
+            <div class="col-md-6 mb20">
+                <h3>Carga Horária</h3>
+                <p class="lead">33 HORAS</p>
+                <p>10 módulos com encontros semanais (terça-feira) de 3 horas/aula no período noturno (19h às 22h) + Encerramento (3 horas)</p>
+            </div>
+            <!-- <div class="col-md-6 mb20">
+                <h3>Investimento</h3>
+                <p class="lead">R$750,00 pagável no boleto</p>
+                <p>(3 x R$250 ou parcelado com acréscimo em 6 x R$135,00)</p>
+            </div> -->
+            <div class="col-md-6 mb20">
+                <h3>Materiais</h3>
+                <p class="lead">São disponibilizados slides de apresentações, vídeos e áudios, lista de bibliografia recomendada.</p>
+            </div>
+            <div class="col-sm-12">
+                <?=$this->partial("formacao/tem-btn.phtml", $this)?>
+            </div>
+        </div>
+    </div>
+</section>

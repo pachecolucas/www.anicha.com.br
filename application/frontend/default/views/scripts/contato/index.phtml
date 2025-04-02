@@ -1,0 +1,50 @@
+<div class="dzsparallaxer auto-init height-is-based-on-content "  data-options='{   direction: "reverse"}'>
+    <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%; background-image: url(/template/images/bg30.jpg)">
+    </div>
+    <div class="semi-black-overlay"></div>
+    <div class="container pt100 pb100">
+        <div class="row">
+            <div class="col-md-8 mr-auto ml-auto text-center">
+                <h3 class="h1 font300 text-white">Entre em contato</h3>
+                <p class="lead text-white-gray">Aproveite para tirar suas dúvidas e faça uma visita</p>
+            </div>
+        </div>
+    </div>
+    <div class="dzsprxseparator--2triangles"></div>
+</div><!--parallax-->
+
+<div class="container pt90 pb50">
+    <div class="row">
+        <div class="col-md-6 mb40">
+
+            <h4 class="text-uppercase">Endereço</h4>
+            <p>
+                <?= $this->address ?>
+            </p>
+            <br>
+            <h4 class="text-uppercase">Email</h4>
+            <p>
+                <a href="#"><?= EMAIL ?></a></p>
+            <br>
+            <h4 class="text-uppercase">Telefones</h4>
+            <p>
+                <?php foreach ($this->telefones as $key => $t): ?>
+                    <span style="display:block;"><?= $t ?> <?= $key == 1 ? '<span class="fa fa-whatsapp"></span>' : '' ?></span>
+                <?php endforeach; ?>
+            </p>
+            <br>
+            <h4 class="text-uppercase">Redes Sociais</h4>
+            <div class="clearfix pt10">
+                <?php foreach ($this->sociais as $s) : ?>
+                    <a href="<?= $s["link"] ?>" class="social-icon si-border <?= $s["class2"] ?>">
+                        <i class="<?= $s["icon"] ?>"></i>
+                        <i class="<?= $s["icon"] ?>"></i>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div class="col-md-6 mb40">
+            <?= $this->partial("contato/form.phtml", $this) ?>
+        </div>
+    </div>
+</div>

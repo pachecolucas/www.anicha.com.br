@@ -1,0 +1,27 @@
+<!--<div class="page-header">
+    <div class="container">
+        <h1><?= $this->post->titulo ?></h1>
+        <div class="breadcrumb-2">
+            <ul class="breadcrumb">
+                <li><a href="home-version-1.html">Home</a></li>
+                <li class="active">Blog</li>
+            </ul>
+        </div>
+    </div>
+</div>    -->
+<?= $this->partial("index/corrige-topo.phtml") ?>
+
+<div class="container mt-80 mb-80">
+    <div class="row">
+        <div class="col-sm-8">
+            <?= $this->partial("blog/item.phtml", array("post" => $this->post, "lista" => false)) ?>
+        </div>
+        <div class="col-sm-4">
+            <aside class="sidebar">
+                <div class="widget">
+                    <?= $this->partial("blog/list.phtml", $this) ?>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>

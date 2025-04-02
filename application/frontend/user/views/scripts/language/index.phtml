@@ -1,0 +1,41 @@
+<?php
+    $TS = array(
+        LocaleController::pt_BR => array(
+                0 => "Alterar idioma",
+                1 => "Escolha seu idioma",
+            ),
+        LocaleController::es => array(
+                0 => "Cambiar idioma",
+                1 => "Elija su idioma",
+            ),
+        LocaleController::en => array(
+                0 => "Change language",
+                1 => "Choose your language",
+            ),
+    );
+    
+    $T = $TS[LOCALE];
+?>
+<div class="col-sm-12">
+    <div class="bloco-form">
+        <form ef-post="" action="/user/language/change" method="post">
+            <h1><?=$T[0]?></h1>       
+            <div class="form-group">
+                <label><?=$T[1]?>:</label>
+                <select name="idioma" class="form-control input-lg">
+                    <?php foreach (LocaleController::$LOCALES as $key => $value) { ?>
+                    <option value="<?=$key?>" <?=LOCALE == $key?"selected='selected'":""?>><?=$value?></option>
+                    <?php } ?>
+                </select>
+            </div>                  
+            <div class="form-group buttons">
+                <span class="lead" ng-show="!loaded"><i class="fa fa-spinner fa-spin"></i> <?=$this->locale("Aguarde")?>...</span>
+                <button type="submit" ng-show="loaded" class="btn btn-primary btn-lg"><?=$this->locale("Salvar")?></button>
+                <div style="margin-top:10px;">
+                    <a href="/epanel/config" ng-show="loaded" class="btn"><?=$this->locale("Voltar")?></a>
+                    <a href="/" ng-show="loaded" class="btn"><?=$this->locale("Cancelar")?></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

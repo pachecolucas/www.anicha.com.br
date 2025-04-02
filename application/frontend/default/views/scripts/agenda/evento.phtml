@@ -1,0 +1,26 @@
+<div class="dzsparallaxer auto-init height-is-based-on-content "  data-options='{direction: "reverse"}'>
+    <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%; background-image: url(/template/images/<?=$this->evento->img1?>)">
+    </div>
+    <div class="semi-black-overlay"></div>
+    <div class="container pt100 pb100">
+        <div class="row">
+            <div class="col-md-8 mr-auto ml-auto">
+                <h3 class="h1 text-center font300 text-white">
+                    <?=$this->evento->titulo?>
+                    <small style="display:block; font-size: 0.5em"><?=$this->evento->subtitulo?></small>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="dzsprxseparator--2triangles"></div>
+</div><!--parallax-->
+<div class="container pt90 pb60">
+    <div class="row mb50">
+        <div class="col-md-10 ml-auto mr-auto">
+            <h2 class="mb20 font300"><?=$this->evento->subtitulo?></h2>
+            <div class="lead">
+                <?=$this->evento->descricao?>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+<?php
+$TS = array(
+    LocaleController::pt_BR => array(
+        0 => "Senha atual",
+        1 => "Nova senha",
+        2 => "Nova senha novamente",
+        3 => "Repita sua nova senha",
+        4 => "Alterar senha",
+        5 => "Informe sua senha atual e depois informe duas vezes sua nova senha:",
+    ),
+    LocaleController::es => array(
+        0 => "Contraseña corriente",
+        1 => "Nueva contraseña",
+        2 => "Nueva contraseña de nuevo",
+        3 => "Repita su nueva contraseña",
+        4 => "Cambiar contraseña",
+        5 => "Introduzca su contraseña y luego repita su contraseña nueva dos veces:",
+    ),
+    LocaleController::en => array(
+        0 => "Current password",
+        1 => "New password",
+        2 => "New password again",
+        3 => "Repeat your new password",
+        4 => "Changing password",
+        5 => "Enter your current password and them repeat your new password:",
+    ),
+);
+
+$T = $TS[LOCALE];
+?>
+<div class="modal fade" id="user_change_password" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <form ef-post="" action="/user/pass/change-pass" method="post">
+        <div class="modal-dialog">
+            <div class="modal-content" id="formInteresse">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel"><?= $T[4] ?></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p><?= $T[5] ?></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label><?= $T[0] ?>:</label>
+                                <input name="x" type="password" class="form-control input-lg" placeholder="<?= $T[0] ?>">
+                            </div>            
+                            <div class="form-group">
+                                <label><?= $T[1] ?>:</label>
+                                <input name="y" type="password" class="form-control input-lg" placeholder="<?= $T[1] ?>">
+                            </div>
+                            <div class="form-group">
+                                <label><?= $T[2] ?>:</label>
+                                <input name="z" type="password" class="form-control input-lg" placeholder="<?= $T[3] ?>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer buttons">
+                    <span class="lead" ng-show="!loaded"><i class="fa fa-spinner fa-spin"></i> <?= $this->locale("Aguarde") ?>...</span>
+                    <button type="submit" ng-show="loaded" class="btn btn-primary"><?= $this->locale("Salvar") ?></button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </form>
+</div>
+
+
+<div class="col-sm-12">
+    <div class="bloco-form">
+        <form ef-post="" action="/user/pass/change-pass" method="post">
+            <h1><?= $T[4] ?><br>
+                <small>
+                    <?= $T[5] ?>
+                </small>
+            </h1>              
+            <div class="form-group">
+                <label><?= $T[0] ?>:</label>
+                <input name="x" type="password" class="form-control input-lg" placeholder="<?= $T[0] ?>">
+            </div>            
+            <div class="form-group">
+                <label><?= $T[1] ?>:</label>
+                <input name="y" type="password" class="form-control input-lg" placeholder="<?= $T[1] ?>">
+            </div>
+            <div class="form-group">
+                <label><?= $T[2] ?>:</label>
+                <input name="z" type="password" class="form-control input-lg" placeholder="<?= $T[3] ?>">
+            </div>
+            <div ng-repeat="error in errors" ng-cloak="">
+                <div class="alert alert-warning">
+                    <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                    {{error}}
+                </div>
+            </div>
+            <div class="form-group buttons">
+                <span class="lead" ng-show="!loaded"><i class="fa fa-spinner fa-spin"></i> <?= $this->locale("Aguarde") ?>...</span>
+                <button type="submit" ng-show="loaded" class="btn btn-primary btn-lg"><?= $this->locale("Salvar") ?></button>
+                <div style="margin-top:10px;">
+                    <a href="/epanel/config" ng-show="loaded" class="btn"><?= $this->locale("Voltar") ?></a>
+                    <a href="/" ng-show="loaded" class="btn"><?= $this->locale("Cancelar") ?></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

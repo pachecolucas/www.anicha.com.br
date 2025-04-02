@@ -1,0 +1,59 @@
+<div class="dzsparallaxer auto-init height-is-based-on-content "  data-options='{direction: "reverse"}'>
+    <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%; background-image: url(/template/images/bg25.jpg)">
+    </div>
+    <div class="semi-black-overlay"></div>
+    <div class="container pt100 pb100">
+        <div class="row">
+            <div class="col-md-8 mr-auto ml-auto">
+                <h3 class="h1 text-center font300 text-white">Agenda</h3>
+            </div>
+        </div>
+    </div>
+    <div class="dzsprxseparator--2triangles"></div>
+</div>
+<!--parallax-->
+<style>
+    #agenda ul.eventos {}
+    #agenda ul.eventos li { display: flex; margin-bottom: 15px; box-shadow: 3px 3px 10px #CCC; }
+    #agenda ul.eventos li.mes-ano { margin-top:50px; box-shadow: none; display: block; text-align: center; }
+    #agenda ul.eventos li span { flex:1; padding:5px 7px; margin-right: 5px; }
+    #agenda ul.eventos li span b,
+    #agenda ul.eventos li span i { display:block; }
+    #agenda ul.eventos li span.dia { background: #999; color:white; text-align: center; line-height: 1.8em; text-transform: uppercase; }
+    #agenda ul.eventos li span.dia b { font-size: 2em; }
+
+</style>
+<div id="agenda" class="container pt90 pb60">
+    <div class="row mb50">
+        <div class="col-md-10 ml-auto mr-auto">
+            <!--<h2 class="mb20 font300 text-center">Agenda Anicha</h2>-->
+            <ul class="eventos list-unstyled">
+                <?php foreach ($this->eventos as $e) : ?>
+                    <?php if ($e->mesAno) : ?>
+                        <li class="mes-ano">
+                            <h3><?= $e->mesAno ?> <small style="color:#CCC">{{'<?= $e->data ?>'|date:'y'}}</small></h3>
+                        </li>
+                    <?php endif; ?>
+                    <li style="padding-right:0;">
+                        <span class="dia" style="flex:0" >
+                            {{'<?= $e->data ?>'|date:'EEE'}}
+                            <b>{{'<?= $e->data ?>'|date:'dd'}}</b>
+                            <small>{{'<?= $e->datahora ?>'|date:'HH:mm'}}</small>
+                        </span>
+                        <span>
+                            <b class="lead"><a href="/agenda/participar/id/<?= $e->id ?>"><?= $e->evento->titulo ?></a></b>
+                            <i><?= $e->evento->subtitulo ?></i>
+                            <?= $e->cidade->nome ?>, <?= $e->estado->uf ?>
+                        </span>
+                        <span style="flex:0; padding: 0; margin:0;">
+                            <a href="/agenda/participar/id/<?= $e->id ?>" class="btn btn-primary" style="height:100%; margin:0; padding-top:20px;">
+                                <i class="fa fa-2x fa-ticket"></i>
+                                PARTICIPAR
+                            </a>
+                        </span>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+/*
+Footer style
+*/
+.footer{
+    padding-top:50px;
+    padding-bottom:20px;
+    background-color:#212121;
+    h4{
+        color:#fff;
+    }
+    li{
+        color:rgba(255,255,255,.7);
+        padding-top:8px;
+    }
+    ul.contact{
+        li{
+            position:relative;
+            color:rgba(255,255,255,.7);
+            padding-left:25px;
+            padding-top:8px;
+            i{
+                position:absolute;
+                top:13px;
+                left:0;
+                color:$primary-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+<form ef-post="" class="login" action="/user/login/authenticate" method="post">
+    <div class="form-group" style="margin-bottom: 0;">
+        <input ng-model="email" ef-focus="" name="email" type="email" class="form-control input-lg vertical-input-up" placeholder="E-mail">
+    </div>
+    <div class="form-group">
+        <input name="xyz" type="password" class="form-control input-lg vertical-input-down" placeholder="<?= $this->locale("Senha") ?>">
+    </div>
+    <div ng-repeat="error in errors" ng-cloak="">
+        <div class="alert alert-warning">
+            <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+            {{error}}
+        </div>
+    </div>
+    <div class="form-group buttons">
+        <span class="lead" ng-show="!loaded"><i class="fa fa-spinner fa-spin"></i> <?= $this->locale("Aguarde") ?>...</span>
+        <button type="submit" ng-show="loaded" class="btn btn-primary btn-lg btn-block"><b><?= $this->locale("ENTRAR") ?></b></button>
+    </div>
+    <div class="form-group">
+        <div class="small">
+            <p>
+                <a href="/user/pass/forgot/email/{{email}}"><i class="fa fa-question-circle"></i> <?= $this->locale("Esqueceu sua senha?") ?></a>
+            </p>
+        </div>
+    </div>
+</form>

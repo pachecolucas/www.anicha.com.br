@@ -1,0 +1,96 @@
+<section id="cotacaoSegurado" class="row">
+    <h3 class="col-sm-12" style="text-transform: none;">
+        <span class="color1">Sobre o veículo</span>
+    </h3>
+    <div>
+        <div class="col-sm-12">
+            <label class="color1">Segurado é o principal condutor do veículo?</label>
+        </div>
+        <div class="control-group col-xs-6 col-sm-3" ng-repeat="c in tiposDeCondutores">
+            <button ng-click="cotacao.condutor = c" type="button" class="btn btn-sm btn-block {{c.id === cotacao.condutor.id?'btn-warning active':'btn-black'}}"><i class="fa {{c.id === cotacao.condutor.id?'fa-check-square-o':'fa-square-o'}}"></i> {{c.resposta}}</button>
+        </div>
+        <div class="clearfix"></div>
+        <br>
+    </div>
+    <div class="control-group col-sm-12">
+        <div class="form-group controls {{errors.cotacaoVeiculoModelo?'has-error':''}}">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-car"></i></span>
+                <input name="name" type="text" ng-model="cotacao.veiculoModelo" class="form-control" placeholder="Modelo">
+            </div>
+            <small class="helping-text" ng-if="errors.cotacaoVeiculoModelo" style="color:white;"><i class="fa fa-warning"></i> {{errors.cotacaoVeiculoModelo.message}}</small>
+        </div>
+    </div>
+    <div class="control-group col-sm-6">
+        <div class="form-group controls {{errors.cotacaoVeiculoAno?'has-error':''}}">
+            <input name="name" type="text" ng-model="cotacao.veiculoAno" class="form-control" placeholder="Ano (fabricação/modelo)">
+            <small class="helping-text" ng-if="errors.cotacaoVeiculoAno" style="color:white;"><i class="fa fa-warning"></i> {{errors.cotacaoVeiculoAno.message}}</small>
+        </div>
+    </div>
+    <div class="control-group col-sm-6">
+        <div class="form-group controls {{errors.cotacaoVeiculoPlaca?'has-error':''}}">
+            <input name="name" type="text" ng-model="cotacao.veiculoPlaca" class="form-control" placeholder="Placa">
+            <small class="helping-text" ng-if="errors.cotacaoVeiculoPlaca" style="color:white;"><i class="fa fa-warning"></i> {{errors.cotacaoVeiculoPlaca.message}}</small>
+        </div>
+    </div>
+
+    <!-- CONDUTOR PRINCIPAL -->
+    <div ng-if="cotacao.condutor.id === 2">
+        <div class="col-sm-12">
+            <label class="color1">Dados do condutor principal:</label>
+        </div>
+        <div class="control-group col-sm-12">
+            <div class="form-group controls {{errors.cotacaoVeiculoNome?'has-error':''}}">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input name="name" type="text" ng-model="cotacao.veiculoNome" class="form-control" placeholder="Nome do condutor principal">
+                </div>
+                <small class="helping-text" ng-if="errors.cotacaoVeiculoNome" style="color:white;"><i class="fa fa-warning"></i> {{errors.cotacaoVeiculoNome.message}}</small>
+            </div>
+        </div>
+        <div class="control-group col-sm-6" ng-if="cotacao.pessoa.id === 1">
+            <div class="form-group controls {{errors.cotacaoVeiculoCpf?'has-error':''}}">
+                <div class="input-group">
+                    <span class="input-group-addon">CPF</span>
+                    <input name="name" type="text" ng-model="cotacao.veiculoCpf" class="form-control" placeholder="999.999.999-99">
+                </div>
+                <small class="helping-text" ng-if="errors.cotacaoVeiculoCpf" style="color:white;"><i class="fa fa-warning"></i> {{errors.cotacaoVeiculoCpf.message}}</small>
+            </div>
+        </div>
+        <div class="control-group col-sm-6" ng-if="cotacao.pessoa.id === 1">
+            <div class="form-group controls {{errors.cotacaoVeiculoCivil?'has-error':''}}">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                    <select name="civil" ng-model="cotacao.veiculoCivil" class="form-control" ng-options="item for item in civis">
+                        <option value="">Estado Civil:</option>
+                    </select>
+                </div>
+                <small class="helping-text" ng-if="errors.cotacaoVeiculoCivil" style="color:white;"><i class="fa fa-warning"></i> {{errors.cotacaoVeiculoCivil.message}}</small>
+            </div>
+        </div>
+        <div class="control-group col-sm-12">
+            <div class="form-group controls {{errors.cotacaoVeiculoNascimento?'has-error':''}}">
+                <div class="input-group">
+                    <span class="input-group-addon">Nascimento</span>
+                    <span class="input-group-addon" style="padding:0;">
+                        <select name="nascDia" ng-model="cotacao.veiculoNascDia" class="form-control" ng-options="dia for dia in nascDias">
+                            <option value="">dia</option>
+                        </select>
+                    </span>
+                    <span class="input-group-addon" style="padding:0;">
+                        <select name="nascMes" ng-model="cotacao.veiculoNascMes" class="form-control" ng-options="mes for mes in nascMeses">
+                            <option value="">mês</option>
+                        </select>
+                    </span>
+                    <span class="input-group-addon" style="padding:0;">
+                        <select name="nascAna" ng-model="cotacao.veiculoNascAno" class="form-control" ng-options="ano for ano in nascAnos">
+                            <option value="">ano</option>
+                        </select>
+                    </span>
+                </div>
+                <small class="helping-text" ng-if="errors.cotacaoVeiculoNascimento" style="color:white;"><i class="fa fa-warning"></i> {{errors.cotacaoVeiculoNascimento.message}}</small>
+            </div>
+        </div>
+    </div>
+    <!-- /condutor principal -->
+</section>

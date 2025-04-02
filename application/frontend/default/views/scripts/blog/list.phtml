@@ -1,0 +1,45 @@
+<script>
+    function PostListCtrl($scope) {
+        $scope.filtrar = function (config) {
+            console.log("PostListCtrl::$filtrar()");
+            console.log(config);
+            config.keys.push({key: 'company', value: 5});
+        }
+    }
+</script>
+<div ng-controller="PostListCtrl">
+    <div ef-list-external="posts" module="external" entity="blog-post" limit="12" init="filtrar">
+        <div class="form-group">
+            <div class="input-group input-group-lg" style="z-index:0;">
+                <input ng-change="searchOnType()" ng-model="config.query" type="text" class="form-control" placeholder="Pesquisar publicações...">
+                <span class="input-group-btn">
+                    <button ng-click="reset()" class="btn btn-skin btn-default" type="button"><i ng-class="{'fa':true, 'fa-search':!config.quering, 'fa-spinner fa-spin':config.quering}" class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </div>
+        <p ng-show="config.query && config.query.length >= config.min" style="text-align: center; margin: 4px 0 0 0;">
+            <span><small>Filtrando resultados por:</small></span>
+            <span class="label label-info">
+                {{config.query}}
+            </span>
+            <button ng-click="config.query = '';
+                        reset();" class="btn btn-link btn-sm"><i class="fa fa-times-circle-o"></i> Remover filtro</button>
+            <span style="display: block;" ng-show="!hasObjects()">
+                <small><i class="fa fa-exclamation-triangle"></i> Nenhum resultado encontrado!</small>
+            </span>
+        </p>
+        <p ng-show="config.query.length > 0 && config.query.length < config.min">
+            <small>Continue escrevendo para começar a filtrar</small>
+        </p>
+        <div style="line-height: 1.2em;">
+            <a class="list-group-item {{<?= $this->post ? $this->post->id : 0 ?> === p.id?'active':''}}" ng-repeat="p in posts" ng-href="/blog/post/id/{{p.id}}/{{p.titulo_url}}" style="border:none;">
+                <span class="badge">{{p.totalComentario}} <i class="fa fa-comment"></i></span>
+                {{p.titulo}}
+            </a>
+        </div>
+
+        <div class="text-center">
+            <a class="btn btn-radius btn-dark btn-sm btn-block" ng-click="showMore()" ng-show="config.hasMore"><i class="fa fa-angle-double-down"></i> mais publicações</a>
+        </div>
+    </div>
+</div>

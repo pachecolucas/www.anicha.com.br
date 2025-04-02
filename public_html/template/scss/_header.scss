@@ -1,0 +1,93 @@
+/*
+Header style
+*/
+.default-header{   
+    .navbar-light.bg-white{
+        background-color: #fff!important;
+    }
+}
+.header-top{
+    ul.list-inline{
+        margin:0px;
+        li.list-inline-item{
+            vertical-align: middle;
+            margin-left: 10px;
+            color:rgba(#000,.7);
+        }
+    }
+}
+.navbar{
+    .form-inline{
+        .form-control{
+            border:0px;
+            background-color:rgba(255,255,255,.3);
+            font-size:13px;
+            color:#fff;
+        }
+    }
+    .btn{
+        border:0px;
+        padding-top:0px!important;
+        padding-bottom: 0px!important;
+        height: 32px;
+        line-height: 32px;
+    }
+}
+.navbar-brand>img{
+    position: relative;
+    margin-top: -6px;
+}
+.navbar.navbar-light .navbar-nav .nav-link{
+    text-transform:capitalize;
+    font-weight:700;
+    letter-spacing: 0px;
+    font-size:.86rem;
+    font-family: $title-font;
+    color:rgba(#000,.7);
+    border-radius:5px;
+    background-color:transparent;
+    &:hover,&.active:hover{
+        color:$primary-color; 
+    }
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.open, .navbar-light .navbar-nav .open>.nav-link,.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: $primary-color;
+}
+@media(min-width:992px){
+    .navbar-expand-lg .navbar-nav .nav-link{
+        padding-left:.6em;
+        padding-right:.6em;
+        padding-top: .7em;
+        padding-bottom: .7em;
+    }
+    .navbar-expand-lg .navbar-nav .nav-item{
+        margin-left: 15px;
+    }
+    .navbar-expand-lg.navbar-onepage .navbar-nav .nav-item{
+        margin-left: 10px;
+        margin-right:10px;
+    }
+    .header-transparent{
+        position: absolute;
+        left:0;
+        top:0;
+        background-color: rgba(#fff,.8)!important;
+        width:100%;
+        z-index: 999;
+        .navbar-light.bg-white{
+            background-color: transparent!important;
+            .navbar-brand>img{
+                margin-top:0px;
+            }
+        }
+    }
+    .header-center.navbar{
+        border-bottom:1px solid #eee;
+        .navbar-brand{
+            position:absolute;
+            left:50%;
+            margin-left: -72px;
+            top:5px;
+        }
+    }
+}

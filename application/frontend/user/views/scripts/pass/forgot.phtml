@@ -1,0 +1,25 @@
+<div class="bloco-form">
+    <div class="bloco-form bg-white">
+        <form ef-post="" class="login" action="/user/pass/recovery" method="post">
+            <h3 style="font-weight: bold; text-shadow: 1px 1px 1px white; margin-top:0;">Recupere a sua senha<br>
+                <small style="color:black">
+                    Informe seu e-mail abaixo e receba um link para cadastrar uma nova senha:
+                </small>
+            </h3>
+            <div class="form-group">
+                <input value="<?= $this->email ?>" name="email" type="email" class="form-control input-lg" placeholder="E-mail">
+            </div>
+            <div ng-repeat="error in errors" ng-cloak="">
+                <div class="alert alert-warning">
+                    <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                    {{error}}
+                </div>
+            </div>
+            <div class="form-group buttons">
+                <span class="lead" ng-show="!loaded"><i class="fa fa-spinner fa-spin"></i> Aguarde...</span>
+                <a ng-show="loaded" href="/epanel" class="btn btn-default">Cancelar</a>
+                <button type="submit" ng-show="loaded" class="btn btn-success"><b>RECUPERAR SENHA</b></button>
+            </div>
+        </form>
+    </div>
+</div>

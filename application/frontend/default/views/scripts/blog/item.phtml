@@ -1,0 +1,54 @@
+<div class="blog-box">
+    <div class="blog-header">
+        <?php if ($this->post->hasFotoGrande) { ?>
+            <img src="<?= $this->post->fotoGrande ?>" class="img-responsive" alt="">
+        <?php } else if ($this->post->hasFoto) { ?>
+            <img src="<?= $this->post->foto ?>" class="img-responsive" alt="">
+        <?php } ?>
+        <h3 class="heading"><a href="/blog/post/id/<?= $this->post->id ?>/<?= $this->post->titulo_url ?>"><?= $this->post->titulo ?></a></h3>
+        <div class="blog-meta">
+            <ul class="meta-list">
+                <li class="posted-on">Criado em : 
+                    <a href="">
+                        <span class="date">{{'<?= $this->post->data ?>'|date}}</span>
+                    </a>
+                </li>
+                <li class="posted-by">Por : <a href=""><?= $this->post->autor->nome ?></a></li>
+                <li><a href=""><i class="fa fa-share-alt"></i></a></li>
+                <li><a href=""><i class="fa fa-heart"></i></a></li>
+                <li><a href=""><i class="fa fa-comment"></i></a></li>
+            </ul>
+        </div>                            
+    </div>
+    <hr/>
+    <div class="blog-excerpt">
+        <p>
+            <span style="white-space: pre-line; font-size:1.1em;">
+                <?php if ($this->lista) { ?>
+                    <?= $this->post->resumo ?>...
+                <?php } else { ?>
+                    <?= $this->post->texto ?>
+                <?php } ?>
+            </span>
+        </p>
+    </div>
+    <br>
+    <?php if ($this->lista) { ?>
+        <a href="/blog/post/id/<?= $this->post->id ?>/<?= $this->post->titulo_url ?>" class="btn btn-warning btn-sm">Continuar lendo...</a>
+        <hr>
+        <a href="/blog/post/id/<?= $this->post->id ?>/<?= $this->post->titulo_url ?>">
+            <i class="fa fa-comment"></i>
+            <ng-pluralize count="<?= $this->post->totalComentario ?>" when="{
+                          '0': 'Seja o primeiro a comentar esta publição.', 
+                          'one': '1 comentário.  Comente você também esta publicação.',
+                          'other': '{} comentários. Comente você também esta publicação.'
+                          }">
+            </ng-pluralize>
+        </a>
+    <?php } else { ?>
+        <br/>
+        <?= $this->partial("blog/autor.phtml", $this) ?>
+        <br>
+        <?= $this->partial("blog/comentarios.phtml", $this) ?>
+    <?php } ?>
+</div>

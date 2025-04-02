@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="Coaching de Vida, Danças Circulares, Frequências de Brilho, Respiração Integrativa"/>
+        <meta name="description" content="Eventos e Terapias Holísticas, Cursos e Vivências na esfera das Terapias Transpessoais"/>
+        <meta name="author" content="<?= SITENAME ?>">
+        <title><?= SITENAME ?> <?= TELEFONE ?></title>
+        <!-- Plugins CSS -->
+        <link href="/template/css/plugins/plugins.css" rel="stylesheet">
+        <!--dz parallaxer-->
+        <link href="/template/dzsparallaxer/dzsparallaxer.css" rel="stylesheet">
+        <link href="/template/dzsparallaxer/scroller.css" rel="stylesheet">
+        <link href="/template/dzsparallaxer/advancedscroller/plugin.css" rel="stylesheet">
+        <link href="/template/linearicons/fonts.css" rel="stylesheet">
+        <!-- REVOLUTION STYLE SHEETS -->
+        <link rel="stylesheet" type="text/css" href="/template/revolution/css/settings.css">
+        <!-- REVOLUTION LAYERS STYLES -->
+        <link rel="stylesheet" type="text/css" href="/template/revolution/css/layers.css">
+        <!-- REVOLUTION NAVIGATION STYLES -->
+        <link rel="stylesheet" type="text/css" href="/template/revolution/css/navigation.css">
+        <!-- CONTACT -->
+        <link type="text/css" rel="stylesheet"  href="/template/smart-form/contact/css/smart-forms.css">
+        <link href="/template/css/style.css" rel="stylesheet">
+    </head>
+    <body ng-app="epanel">
+        <header class="default-header">
+            <div class="header-top pt10 clearfix">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 pt0 ml-auto">
+                            <ul class="list-inline text-right">
+                                <li class="list-inline-item">
+                                    <?= $this->telefones[0] ?> &middot;
+                                    <?= $this->telefones[1] ?> <i class="fa fa-whatsapp"></i> &middot;
+                                    <?= $this->telefones[2] ?> <i class="fa fa-whatsapp"></i>
+                                </li>
+                                <li class="list-inline-item">
+                                    <?= EMAIL ?>
+                                </li>
+                                <!--                                <li class="list-inline-item">
+                                                                    <a href="#" class="btn btn-primary">Sign In</a>
+                                                                </li>-->
+                                <li class="list-inline-item">
+                                    <?php foreach ($this->sociais as $s) : ?>
+                                        <a href="<?= $s["link"] ?>" class="social-icon-sm si-dark <?= $s["class"] ?> si-gray-round">
+                                            <i class="<?= $s["icon"] ?>"></i>
+                                            <i class="<?= $s["icon"] ?>"></i>
+                                        </a>
+                                    <?php endforeach; ?>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><!--header top-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <div class="container">                
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><img src="/template/images/logo.svg" alt="" style="height:48px;"></a>
+                    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                        <ul class="navbar-nav ml-auto">
+                            <?php foreach ($this->menu->itens as $key => $i) : ?>
+                                <li class="nav-item <?= $i->itens ? "dropdown" : "" ?> <?= $this->PP === $i->link ? "active" : "" ?>">
+                                    <a class="nav-link <?= $i->itens ? "dropdown-toggle" : "" ?>" href="<?= $i->link ?>" id="dropdown<?= $key ?>" <?= $i->itens ? 'data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : '' ?>><?= $i->nome ?></a>
+                                    <?php if ($i->itens): ?>
+                                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdown01">
+                                            <?php foreach ($i->itens as $ii) : ?>
+                                                <a class="dropdown-item" href="<?= $ii->link ?>"><?= $ii->nome ?></a>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header><!--Header-->
+        <?= $this->layout()->content ?>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb30">
+                        <h4>Endereço</h4>
+                        <ul class="list-unstyled contact">
+                            <li><i class="fa fa-home"></i>
+                                <?= $this->address ?>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb30">
+                        <h4>Contato</h4>
+                        <ul class="list-unstyled contact">
+                            <li><i class="fa fa-phone"></i>
+                                <?php foreach ($this->telefones as $key => $t): ?>
+                                    <span style='display:block'><?= $t ?> <?= $key > 0 ? '<span class="fa fa-whatsapp"></span>' : '' ?></span>
+                                <?php endforeach; ?>
+                            </li>
+                            <li><i class="fa fa-envelope-o"></i>
+                                <a href="mailto:<?= EMAIL ?>"><?= EMAIL ?></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb30">
+                        <h4>Pós-graduação TTI</h4>
+                        <p>
+                            Já imaginou fazer uma Pós-graduação completa no Anicha? As matrículas estão abertas e as aulas começam em breve. Aproveite! 
+                        </p>
+                        <a href="/formacao/tti" class="btn btn-white-outline">VER MAIS</a>
+                    </div>
+                </div>
+                <div class="row pt40">
+
+                    <div class="col-md-6">
+                        <?php foreach ($this->sociais as $s) : ?>
+                            <a href="<?= $s["link"] ?>" class="social-icon-sm si-dark <?= $s["class"] ?> si-gray-round">
+                                <i class="<?= $s["icon"] ?>"></i>
+                                <i class="<?= $s["icon"] ?>"></i>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        ANICHA &copy; 2018. Desenvolvido com <i class="fa fa-heart"></i> por <a href="http://agenciabugio.com.br">Agência Bugio</a>.
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--back to top-->
+        <a href="#" class="back-to-top hidden-xs-down" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+        <!-- jQuery first, then Tether, then Bootstrap JS. -->
+        <script type="text/javascript" src="/template/js/plugins/plugins.js"></script> 
+        <script type="text/javascript" src="/template/js/beauty.custom.js"></script> 
+        <!-- MEU EPANEL EXTERNAL -->
+        <script src="https://meu.epanel.com.br/meu-epanel-client-1.js"></script>
+        <!--dz parallaxer-->
+        <script type="text/javascript" src="/template/dzsparallaxer/dzsparallaxer.js"></script>
+        <script type="text/javascript" src="/template/dzsparallaxer/scroller.js"></script>
+        <script type="text/javascript" src="/template/dzsparallaxer/advancedscroller/plugin.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script type="text/javascript" src="/template/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script type="text/javascript" src="/template/revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->	
+        <script type="text/javascript" src="/template/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/template/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+        <script type="text/javascript" src="/template/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/template/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/template/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/template/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/template/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/template/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/template/js/revolution-custom.js"></script> 
+    </body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html class="ng-scope" style="min-height: 481px;" ng-app="epanel" lang="pt"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8">
+    <meta name="description" content="Entre com seu login e senha">
+    <meta name="author" content="Lucas Pacheco Teixeira, Sayenko">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal IONICS</title>
+
+    <!-- Favicons
+  ================================================== -->
+    <link rel="shortcut icon" href="http://localhost:8888/epanel/fav/favicon.ico">
+    <link rel="apple-touch-icon" href="http://localhost:8888/epanel/fav/icon57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="http://localhost:8888/epanel/fav/icon72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="http://localhost:8888/epanel/fav/icon76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="http://localhost:8888/epanel/fav/icon114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="http://localhost:8888/epanel/fav/icon120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="http://localhost:8888/epanel/fav/icon144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="http://localhost:8888/epanel/fav/icon152.png" sizes="152x152">
+
+    <!-- CSS
+  ================================================== -->
+    <style>.file-input-wrapper { overflow: hidden; position: relative; cursor: pointer; z-index: 1; }.file-input-wrapper input[type=file], .file-input-wrapper input[type=file]:focus, .file-input-wrapper input[type=file]:hover { position: absolute; top: 0; left: 0; cursor: pointer; opacity: 0; filter: alpha(opacity=0); z-index: 99; outline: 0; }.file-input-name { margin-left: 8px; }</style><link rel="stylesheet" href="Portal%20IONICS_arquivos/font-awesome.css">
+    <link rel="stylesheet" href="Portal%20IONICS_arquivos/ionicons.css">
+
+    <!--<link rel="stylesheet" href="/epanel/min/all-in-one.min.css">-->
+    <link rel="stylesheet" href="Portal%20IONICS_arquivos/all-in-one2.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Javascript Libraries (Terceiros)
+  ================================================== -->
+                <script src="Portal%20IONICS_arquivos/jquery-1.js"></script>
+            <script src="Portal%20IONICS_arquivos/jquery-ui-1.js"></script>
+            <script src="Portal%20IONICS_arquivos/morris.js"></script>
+            <script src="Portal%20IONICS_arquivos/jquery_002.js"></script>
+            <script src="Portal%20IONICS_arquivos/jquery_008.js"></script>
+            <script src="Portal%20IONICS_arquivos/icheck.js"></script>
+            <script src="Portal%20IONICS_arquivos/app-editado.js"></script>
+            <script src="Portal%20IONICS_arquivos/jshashtable-2.js"></script>
+            <script src="Portal%20IONICS_arquivos/bootstrap.js"></script>
+            <script src="Portal%20IONICS_arquivos/messenger.js"></script>
+            <script src="Portal%20IONICS_arquivos/messenger-theme-future.js"></script>
+            <script src="Portal%20IONICS_arquivos/jquery_007.js"></script>
+            <script src="Portal%20IONICS_arquivos/jquery.js"></script>
+            <script src="Portal%20IONICS_arquivos/jquery_006.js"></script>
+            <script src="Portal%20IONICS_arquivos/jquery_005.js"></script>
+            <script src="Portal%20IONICS_arquivos/jquery_003.js"></script>
+            <script src="Portal%20IONICS_arquivos/bootstrap-datepicker_002.js"></script>
+            <script src="Portal%20IONICS_arquivos/bootstrap-datepicker.js"></script>
+            <script src="Portal%20IONICS_arquivos/swfobject.js"></script>
+            <script src="Portal%20IONICS_arquivos/jquery_004.js"></script>
+            <script src="Portal%20IONICS_arquivos/bootstrap_002.js"></script>
+            <script src="Portal%20IONICS_arquivos/angular.js"></script>
+            <script src="Portal%20IONICS_arquivos/angular-route.js"></script>
+            <script src="Portal%20IONICS_arquivos/angular-resource.js"></script>
+            <script src="Portal%20IONICS_arquivos/angular-locale_pt-br.js"></script>
+            <script src="Portal%20IONICS_arquivos/ui-bootstrap-tpls-0.js"></script>
+            <script src="Portal%20IONICS_arquivos/app.js"></script>
+            <script src="Portal%20IONICS_arquivos/factories.js"></script>
+            <script src="Portal%20IONICS_arquivos/directives.js"></script>
+            <script src="Portal%20IONICS_arquivos/directives-produto.js"></script>
+            <script src="Portal%20IONICS_arquivos/controllers.js"></script>
+            <script src="Portal%20IONICS_arquivos/default.js"></script>
+    
+    <script src="Portal%20IONICS_arquivos/raphael-min.js"></script>
+<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>    <body style="min-height: 481px;" class="skin-blue  pace-done"><ul class="messenger messenger-fixed messenger-on-top messenger-theme-future messenger-empty"><li class="messenger-message-slot"><div class="messenger-message message alert error message-error alert-error messenger-will-hide-after messenger-hidden"><button type="button" class="close" data-dismiss="alert">×</button><div class="messenger-message-inner">Resposta recebida não foi algo dentro do esperado.</div><div class="messenger-spinner">
+    <span class="messenger-spinner-side messenger-spinner-side-left">
+        <span class="messenger-spinner-fill"></span>
+    </span>
+    <span class="messenger-spinner-side messenger-spinner-side-right">
+        <span class="messenger-spinner-fill"></span>
+    </span>
+</div></div></li></ul><div class="pace  pace-inactive"><div data-progress="99" data-progress-text="100%" style="width: 100%;" class="pace-progress">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="http://localhost:8888/epanel" class="logo">
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                <img src="Portal%20IONICS_arquivos/product.png" alt="Portal IONICS" style="height: 30px;">
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i>
+                                <span>Lucas Sayenko <i class="caret"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header bg-light-blue">
+                                    <img src="Portal%20IONICS_arquivos/avatar5.png" class="img-circle" alt="User Image">
+                                    <p>
+                                        Lucas Sayenko - IONICS                                        <small>SuperAdmin</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <!--                                <li class="user-body">
+                                                                    <div class="col-xs-4 text-center">
+                                                                        <a href="#">Followers</a>
+                                                                    </div>
+                                                                    <div class="col-xs-4 text-center">
+                                                                        <a href="#">Sales</a>
+                                                                    </div>
+                                                                    <div class="col-xs-4 text-center">
+                                                                        <a href="#">Friends</a>
+                                                                    </div>
+                                                                </li>-->
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <!--                                    <div class="pull-left">
+                                                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                                                        </div>-->
+                                    <div class="pull-right">
+                                        <a href="http://localhost:8888/user/logout" class="btn btn-default btn-flat">Sair</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div style="min-height: 269px;" class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside style="min-height: 481px;" class="left-side sidebar-offcanvas">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel" style="text-align: center">
+                        <div class="image">
+                            <img src="Portal%20IONICS_arquivos/avatar5.png" class="img-circle" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <p>Lucas Sayenko</p>
+                            <!--<a href="#"><i class="fa fa-circle text-success"></i> Online</a>-->
+                        </div>
+                    </div>
+
+                                        <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                                                    <li ng-show="true" class="">
+                                <a href="http://localhost:8888/epanel">
+                                    <i class="fa fa-dashboard"></i>
+                                    <span>Dashboard</span>
+                                                                    </a>
+                                                            </li>
+                                                    <li ng-show="true" class="">
+                                <a href="http://localhost:8888/epanel/minha-conta">
+                                    <i class="fa fa-user"></i>
+                                    <span>Minha Conta</span>
+                                                                    </a>
+                                                            </li>
+                                                    <li ng-show="true" class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-users"></i>
+                                    <span>Usuários</span>
+                                    <i class="fa fa-angle-left pull-right"></i>                                </a>
+                                                                    <ul class="treeview-menu">
+                                                                                    <li class="">
+                                                <a style="font-size: 0.85em; margin-left: 10px;" href="http://localhost:8888/epanel/usuario"><i class="fa fa-user"></i> Perfis de Acesso</a>
+                                            </li>
+                                                                                    <li class="">
+                                                <a style="font-size: 0.85em; margin-left: 10px;" href="http://localhost:8888/epanel/grupo"><i class="fa fa-building-o"></i> Grupos e PJs</a>
+                                            </li>
+                                                                            </ul>
+                                                            </li>
+                                                    <li ng-show="true" class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-tags"></i>
+                                    <span>Produtos</span>
+                                    <i class="fa fa-angle-left pull-right"></i>                                </a>
+                                                                    <ul class="treeview-menu">
+                                                                                    <li class="">
+                                                <a style="font-size: 0.85em; margin-left: 10px;" href="http://localhost:8888/epanel/produto"><i class="fa fa-tag"></i> Produtos no Portal</a>
+                                            </li>
+                                                                                    <li class="">
+                                                <a style="font-size: 0.85em; margin-left: 10px;" href="http://localhost:8888/epanel/produto/sincronizar-com-protheus"><i class="fa fa-exchange"></i> Sincronizar com Protheus</a>
+                                            </li>
+                                                                                    <li class="">
+                                                <a style="font-size: 0.85em; margin-left: 10px;" href="http://localhost:8888/epanel/categoria"><i class="fa fa-bars"></i> Configurar Categorias</a>
+                                            </li>
+                                                                            </ul>
+                                                            </li>
+                                                    <li ng-show="true" class="active">
+                                <a href="http://localhost:8888/epanel/pedido">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Pedidos</span>
+                                                                    </a>
+                                                            </li>
+                                                    <li ng-show="true" class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-table"></i>
+                                    <span>Relatórios</span>
+                                    <i class="fa fa-angle-left pull-right"></i>                                </a>
+                                                                    <ul class="treeview-menu">
+                                                                                    <li class="">
+                                                <a style="font-size: 0.85em; margin-left: 10px;" href="http://localhost:8888/epanel/relatorio/faturamento"><i class="fa fa-usd"></i> Faturamento</a>
+                                            </li>
+                                                                            </ul>
+                                                            </li>
+                                                    <li ng-show="true" class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-lock"></i>
+                                    <span>Controle de Acesso</span>
+                                    <i class="fa fa-angle-left pull-right"></i>                                </a>
+                                                                    <ul class="treeview-menu">
+                                                                                    <li class="">
+                                                <a style="font-size: 0.85em; margin-left: 10px;" href="http://localhost:8888/epanel/acao-grupo"><i class="fa fa-bars"></i> Grupos de Ações</a>
+                                            </li>
+                                                                                    <li class="">
+                                                <a style="font-size: 0.85em; margin-left: 10px;" href="http://localhost:8888/epanel/acao"><i class="fa fa-tasks"></i> Ações</a>
+                                            </li>
+                                                                                    <li class="">
+                                                <a style="font-size: 0.85em; margin-left: 10px;" href="http://localhost:8888/epanel/permissao"><i class="fa fa-unlock-alt"></i> Permissões</a>
+                                            </li>
+                                                                            </ul>
+                                                            </li>
+                                                    <li ng-show="true" class="">
+                                <a href="http://localhost:8888/epanel/about">
+                                    <i class="icomoon-ePanel"></i>
+                                    <span>ePanel</span>
+                                                                    </a>
+                                                            </li>
+                                            </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+                <!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Gestão de Pedidos
+        <small>Controle aqui todos os pedidos da IONICS</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="http://localhost:8888/epanel"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Pedidos </li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <section class="col-sm-12">
+            <!-- BOX -->
+            <div class="box box-info">
+                <!-- BOX HEADER -->
+<!--                <div class="box-header">
+                    <i class="fa fa-user"></i>
+                    <h3 class="box-title">
+                        Usuários <small>Todas as contas cadastradas no Portal IONICS</small>
+                    </h3>
+                </div>-->
+                <!-- .BOX HEADER -->
+                <!-- BOX BODY -->
+                <div class="box-body">
+                    <div class="ng-isolate-scope" ef-crud="" module="pedido" entity="pedido" limit="30">
+    <div class="row">
+        <div class="col-lg-12">
+            <form class="navbar-form ng-pristine ng-valid" role="search" style="padding-left: 0; padding-right: 0;">
+    <div class="form-group" style="width: 100%;">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button ng-click="reset()" class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+            </span>
+            <input ef-focus="" ng-change="searchOnType()" ng-model="config.query" class="form-control ng-pristine ng-valid" placeholder="Buscar" type="text">
+                        <span class="input-group-btn">
+                <button title="" data-original-title="" ef-title="Adicionar" class="btn btn-primary" data-toggle="modal" data-target="#edit_pedido" ng-click="object = {}" type="button"><i class="fa fa-plus-square"></i></button>
+            </span>
+                    </div>
+    </div>
+</form>
+<p class="ng-hide" ng-show="isFiltering()" style="text-align: center; margin: 4px 0 0 0;">
+    <span><small>Filtrando resultados por:</small></span>
+    <span class="label label-info ng-binding">
+        
+    </span>
+    <button ng-click="config.query = '';
+        reset();" class="btn btn-link btn-sm"><i class="fa fa-times-circle-o"></i> Remover filtro</button>
+    <span class="" style="display: block;" ng-show="!hasObjects()">
+        <small><i class="fa fa-exclamation-triangle"></i> Nenhum resultado encontrado!</small>
+    </span>
+</p>        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table style="margin-bottom: 0;" ng-show="hasObjects()" class="table table-hover table-condensed ng-hide">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center; width:50px;">
+                                <a href="#" ng-click="sortBy('pedido.id')">
+                                    nº
+                                    <span class="ng-hide" ng-show="doShow(true, 'pedido.id')"><i class="fa fa-arrow-down"></i></span>
+                                    <span class="ng-hide" ng-show="doShow(false, 'pedido.id')"><i class="fa fa-arrow-up"></i></span>
+                                </a>
+                            </th>
+                            <th style="text-align:center;">
+                                <a href="#" ng-click="sortBy('pedido.created')">
+                                    criação
+                                    <span class="ng-hide" ng-show="doShow(true, 'pedido.created')"><i class="fa fa-arrow-down"></i></span>
+                                    <span class="ng-hide" ng-show="doShow(false, 'pedido.created')"><i class="fa fa-arrow-up"></i></span>
+                                </a>
+                            </th>
+                            <th style="text-align:center;">
+                                <a href="#" ng-click="sortBy('pedido.updated, pedido.created')">
+                                    atualização
+                                    <span class="ng-hide" ng-show="doShow(true, 'pedido.updated, pedido.created')"><i class="fa fa-arrow-down"></i></span>
+                                    <span class="ng-hide" ng-show="doShow(false, 'pedido.updated, pedido.created')"><i class="fa fa-arrow-up"></i></span>
+                                </a>
+                            </th>
+                            <th style="text-align:center;">
+                                <a href="#" ng-click="sortBy('pedido.aprooved, pedido.created')">
+                                    aprovação
+                                    <span class="ng-hide" ng-show="doShow(true, 'pedido.aprooved, pedido.created')"><i class="fa fa-arrow-down"></i></span>
+                                    <span class="ng-hide" ng-show="doShow(false, 'pedido.aprooved, pedido.created')"><i class="fa fa-arrow-up"></i></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="sortBy('grupo_master.nome, pedido.created')">
+                                    master
+                                    <span class="ng-hide" ng-show="doShow(true, 'grupo_master.nome, pedido.created')"><i class="fa fa-arrow-down"></i></span>
+                                    <span class="ng-hide" ng-show="doShow(false, 'grupo_master.nome, pedido.created')"><i class="fa fa-arrow-up"></i></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="sortBy('grupo_slave.nome, pedido.created')">
+                                    slave
+                                    <span class="ng-hide" ng-show="doShow(true, 'grupo_slave.nome, pedido.created')"><i class="fa fa-arrow-down"></i></span>
+                                    <span class="ng-hide" ng-show="doShow(false, 'grupo_slave.nome, pedido.created')"><i class="fa fa-arrow-up"></i></span>
+                                </a>
+                            </th>
+                            <th style="text-align:center;">
+                                produtos
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ngRepeat: o in objects -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div style="text-align:center; padding:10px 0 40px 0;">
+        <a class="btn btn-primary btn-sm btn-block ng-hide" ng-click="showMore()" ng-show="config.hasMore"><i class="fa fa-angle-double-down"></i> Ver mais</a>
+    </div>
+    <!-- EDIÇÃO COM MODAL BACANINHA :D -->
+<div class="modal fade" id="edit_categoria" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <form class="ng-pristine ng-valid" ef-form="" action="/usuario/usuario">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content" id="formInteresse">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">Usuário</h4>
+                    <input name="id" value="" type="hidden">
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label>Nome</label>
+                            <input name="nome" ng-model="object.nome" class="form-control ng-pristine ng-valid" placeholder="Nome do usuário" type="text">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>Nascimento</label>
+                            <input autocomplete="off" maxlength="10" ef-birth-date="" name="nascimentoModel" ng-model="object.nascimento" class="form-control ng-pristine ng-valid" placeholder="00/00/0000" type="text">
+                            <input name="nascimento" value="" type="hidden">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>CPF</label>
+                            <input autocomplete="off" maxlength="14" ef-cpf="" name="cpf" ng-model="object.cpf" class="form-control ng-pristine ng-valid" type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>E-mail</label>
+                            <input ng-disabled="object.id" name="email" ng-model="object.email" class="form-control ng-pristine ng-valid" placeholder="E-email para login" type="text">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Grupo</label>
+                            <select class="form-control" name="grupo">
+                                <option selected="selected" value="- tipo -">- tipo -</option>
+                                
+Warning:  Invalid argument supplied for foreach() in 
+/Users/Sayenko/Documents/GitIonicsWorkspace/portal_ionics/application/frontend/epanel/views/scripts/usuario/edit.phtml
+ on line 36
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer buttons">
+    <div class="ng-hide" ng-show="!loaded">
+        <span class="lead"><i class="fa fa-spinner fa-spin"></i> Aguarde...</span>
+    </div>
+    <div class="" ng-show="loaded">
+        <div class="row">
+            <div class="col-md-6" style="text-align: left;">
+                <button type="button" class="btn btn-default" ng-click="search()" data-dismiss="modal">fechar</button>
+                                    <button type="button" class="btn btn-danger ng-hide" ng-click="delete(object)" ng-show="object.id">apagar</button>
+                            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary btn-lg">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </form>
+</div>
+<!-- /EDIÇÃO COM MODAL BACANINHA :D --></div>                </div>
+                <!-- .BOX BODY -->
+            </div>
+            <!-- .BOX -->
+        </section>
+    </div>
+</section>            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+
+        <!-- add new calendar event modal -->
+    
+</body></html>

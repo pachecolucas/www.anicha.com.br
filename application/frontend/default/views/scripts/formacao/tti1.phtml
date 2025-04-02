@@ -1,0 +1,97 @@
+<div>
+    <img src="/template/images/bg21.jpg" alt="<?= $this->evento->titulo ?>" style="width: 100%">
+</div>
+<div class="container pt90 pb60">
+    <div class="row mb20">
+        <div class="col-md-6">
+            <h3>Pós-graduação em TTI 2018-2020<br><small>Terapias Transpessoais Integrativas</small></h3>
+            <p class="lead">
+                É um curso com as bases da Psicologia Transpessoal voltado para auto conhecimento porém com foco em Terapias Integrativas. Um curso realmente transformador, pois acreditamos que só podemos cuidar o outro quando cuidamos de nos!
+            </p>
+            <p>
+                Um curso onde o aluno vai estudar a teoria e vivenciar muitas das terapias de acordo com  a PORTARIA No- 849, DE 27 DE MARÇO DE 2017, que define a inclusão de praticas Integrativas e Complementares no SUS.
+            </p>
+            <p>
+                As aulas serão ministradas uma vez por mês, através de seminãrios com inicio na sexta feira das 19:00 as 22:30 e no sábado das 8:30 as 20:00 exceto os seminários de imersão que serão sábados e domingos.
+            </p>
+            <br>
+            <!--<hr class="mb80">-->
+            <h3>Objetivo Geral</h3>
+            <p class="lead">
+                <?= $this->objetivoGeral[0] ?>
+            </p>
+            <ul>
+                <?php foreach ($this->objetivoGeral[1] as $o) : ?>
+                    <li><?= $o ?></li>
+                <?php endforeach; ?>
+            </ul>
+            <br>
+            <br>
+            <h3>Objetivos Específicos</h3>
+            <p>
+                <?= $this->objetivosEspecificos[0] ?>
+            </p>
+            <ul>
+                <?php foreach ($this->objetivosEspecificos as $o) : ?>
+                    <li><?= $o ?></li>
+                <?php endforeach; ?>
+            </ul>
+            <br><br>
+            <h3>Condições de pagamento</h3>
+            <p>
+                Matriculas realizadas até 30/08/18 ficam em 250 reais.<br>
+                Matrículas realizadas após 30/08/18 ficam em 300 reais.
+            </p>
+            <p>
+                A mensalidade são 24 parcelas de 649 reais. Mas caso o valor seja pago em dia, até o dia 10 de cada mês, será oferecido um desconto de 10% custando apenas 590 reais.
+            </p>
+            <h4>Dados para depósito</h4>
+            <p class="lead">Garanta sua vaga depositando o valor da matrícula em nossa conta da VIACRED:</p>
+            <p class="alert alert-primary" style="font-family: monospace;">
+                ESPAÇO ANICHA LTDA. ME<br>
+                <b>CNPJ:</b> 22.771.858/0001-92<br>
+                <b>Banco:</b> 085 (VIACREDI – Blumenau/SC)<br>
+                <b>Agência:</b> 101 (R. Gen. Osório, 3269 - Água Verde)<br>
+                <b>Conta corrente:</b> 828.783-0<br>
+                <!--Anexo a ficha cadastral e os documentos a serem fornecidos.<br>-->
+            </p>
+            <br>
+            <h3>Início das aulas</h3>
+            <p class="lead">19 de outubro de 2018.</p>
+            <p>
+                Estamos muito felizes com a possibilidade de você participar desta turma!
+            </p>
+            <br><br>
+            <h3>Dúvidas?</h3>
+            <?= $this->partial("itens/form.phtml", $this) ?>
+        </div>
+        <div class="col-md-6">
+            <?php foreach ($this->modulos as $m): ?>
+                <h3 style="color:<?= $m->cor ?>"><?= $m->titulo ?> <span class="label label-primary pull-right"><?= $m->getHoras() ?> horas</span></h3>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="background:<?= $m->cor ?>; border:none;">cód.</th>
+                            <th style="background:<?= $m->cor ?>; border:none;">tema</th>
+                            <th style="background:<?= $m->cor ?>; border:none;" class="text-center">professor</th>
+                            <th style="background:<?= $m->cor ?>; border:none;" class="text-center">carga horária</th>
+                            <th style="background:<?= $m->cor ?>; border:none;" class="text-center">data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($m->temas as $t): ?>
+                            <tr>
+                                <th><b><?= $t->codigo ?></b></th>
+                                <th><?= $t->nome ?></th>
+                                <th class="text-center"><?= $t->professor ?></th>
+                                <th class="text-center"><?= $t->horas ?></th>
+                                <th class="text-center">{{'<?= $t->data ?>'|date}}</th>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <br>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>

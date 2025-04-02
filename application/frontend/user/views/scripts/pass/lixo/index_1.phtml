@@ -1,0 +1,75 @@
+<? if($this->user) { ?>
+	<div style="height:7px; background: url(/img/top_shadow.png) bottom center no-repeat;"></div>
+	<form class="ajax3" action="/user/password-change" method="post">
+		<table class="vertical top_box" style="width:800px;">
+			<tr>
+				<th colspan="2" style="text-align:center">
+					<h1>Crie uma nova senha:</h1>
+					<h2>Informe sua <b>senha atual</b> e escreva duas vezes a <b>nova senha</b>.</h2>
+				</th>
+			</tr>
+			<tr>
+				<th colspan="2">
+					<p style="display:none; padding:2px 5px; margin:0 100px 5px 100px; text-align:center;" class="error"></p>
+				</th>
+			</tr>
+			<tr>
+				<th>Senha atual:</th><td><input type="password" name="atual" /></td>
+			</tr>
+			<tr>
+				<th></th><td><hr class="space" /></td>
+			</tr>
+			<tr>
+				<th>Nova senha:</th><td><input type="password" name="novo1" /></td>
+			</tr>
+			<tr>
+				<th>Repita a nova senha:</th><td><input type="password" name="novo2" /></td>
+			</tr>
+			<tr>
+				<th></th>
+				<td style="background:none; padding-top:5px;">
+					<button class="btn" type="submit" style="float:left;">
+						<img src="/img/btn/salvar.png" alt="Salvar" />
+					</button>
+					<button class="btn" style="float:left" onclick="javascript:history.back(); return false;"><img src="/img/btn/cancelar.png" alt="Login" /></button>
+				</td>
+			</tr>
+		</table>
+	</form>
+<? } else { ?>
+	<form class="ajax3" action="/user/password-remember" method="post">
+		<table class="vertical top_box" style="width:300px">
+			<tr>
+				<th colspan="2" style="text-align:center">
+					<h1>Recupere sua senha</h1>
+					<h2>Informe seu <b>e-mail</b> e seu <b>CPF</b> e receba instruções no seu email para criar uma nova senha:</h2>
+				</th>
+			</tr>
+			<tr>
+				<th colspan="2">
+					<p style="display:none; padding:2px 5px; margin:0 0 5px 0; text-align:center;" class="error"></p>
+				</th>
+			</tr>
+			<tr>
+				<th>E-mail: </th><td><input type="text" name="login" /></td>
+			</tr>
+			<tr>
+				<th>CPF*: </th><td><input class="cpf" type="text" name="cpf" /></td>
+			</tr>
+			<tr>
+				<th></th>
+				<td>
+					* Caso não tenha informado seu CPF no momento em que se cadastrou apenas deixe este campo em branco.
+				</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td style="padding-top:8px;">
+					<button class="btn" type="submit" style="float:left;">
+						<img src="/img/btn/remember.png" alt="Receber instruções por e-mail" />
+					</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+<? } ?>

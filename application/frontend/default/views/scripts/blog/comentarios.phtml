@@ -1,0 +1,90 @@
+<!--contact section-->
+<section id="blog-comments">
+    <script type="text/javascript">
+        function ComentarioCtrl($scope, EpanelServiceExternal) {
+            var srvPost = EpanelServiceExternal.create('external', 'blog-post');
+            $scope.loadPost = function () {
+                srvPost.get({id:<?= $this->post->id ?>}, function (result) {
+                    $scope.post = result.object;
+                });
+            };
+            $scope.loadPost();
+
+            $scope.comentario = {
+                post: <?= $this->post->id ?>
+            };
+            $scope.loading = false;
+            $scope.sent = false;
+            $scope.onSubmit = function (config) {
+                console.log("ComentarioCtrl::$onSubmit(config)");
+                console.log(config);
+                $scope.loading = true;
+            };
+            $scope.onSuccess = function (object) {
+                console.log("ComentarioCtrl::$onSuccess(object)");
+                console.log(object);
+                $scope.loading = false;
+                $scope.sent = true;
+                $scope.loadPost(); // para recarregar os comentários
+            };
+            $scope.onErrors = function (errors) {
+                console.log("ComentarioCtrl::$onErrors(errors)");
+                console.log(errors);
+                $scope.loading = false;
+            };
+            $scope.onFail = function (e) {
+                console.log("ComentarioCtrl::$onFail(e)");
+                console.log(e);
+                $scope.loading = false;
+                alert("Um erro inesperado aconteceu. Por favor, informe o responsável pelo sistema.");
+            };
+        }
+    </script>
+    <div ng-controller="ComentarioCtrl">
+        <div class="form-contact">
+            <h4 class="heading">Comentários</h4>
+            <ul style="list-style: none; padding:0;">
+                <li class="comment" ng-repeat="c in post.comentarios" style="padding-bottom: 20px;">
+                    <div class="who-said"><i class="fa fa-user"></i> <b>{{c.nome}} :</b></div>
+                    <div class="what-said"><i>{{c.conteudo}}</i></div>
+                    <small class="date">{{c.data| date:'short'}}</small>
+                </li>
+            </ul>
+            <div class="write-comment">
+                <h4 class="heading">Deixe um comentário</h4>
+                <form ef-post-external="comentario" action="https://meu.epanel.com.br/external-especial/blog/salvar-comentario/" name="sentMessage" id="comentarioForm" class="contact-form" method="post">
+                    <div ng-show="sent" class="text-center">
+                        <h2 style="color:#DBB000; padding: 80px 0 50px 0;">
+                            Obrigado, {{contato.nome}}!<br>
+                            <small style="color:#777">Seu comentário foi enviado.<br><i class="fa fa-thumbs-up"></i></small>
+                        </h2>
+                    </div>
+                    <div ng-show="!sent">
+                        <div class="control-group">
+                            <div class="form-group controls {{errors.comentarioNome?'has-error':''}}" style="margin-bottom:5px;">
+                                <input name="name" type="text" ng-model="comentario.nome" class="form-control" placeholder="Seu nome aqui">
+                                <label style="margin:0">
+                                    <small class="helping-text" ng-if="errors.comentarioNome" style="font-weight: normal; color:#B00;"><i class="fa fa-warning"></i> {{errors.comentarioNome.message}}</small>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group controls {{errors.comentarioConteudo?'has-error':''}}">
+                                <textarea rows="5" ng-model="comentario.conteudo" class="form-control" placeholder="Comentário..."></textarea>
+                                <label style="margin:0">
+                                    <small class="helping-text" ng-if="errors.comentarioConteudo" style="font-weight: normal; color:#B00;"><i class="fa fa-warning"></i> {{errors.comentarioConteudo.message}}</small>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group">
+                                <button type="submit" name="button" class="btn btn-primary" ng-disabled="loading"><i ng-if="loading" class="fa fa-spin fa-spinner"></i> {{loading?'Enviando. Aguarde...':'Publicar comentário'}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!--contact form-->
+    </div>
+</section>
+<!--end contact section-->
