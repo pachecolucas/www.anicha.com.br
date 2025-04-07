@@ -24,7 +24,6 @@ class Email_Entity_Email {
             // DESTINATÁRIOS
             $mail->AddAddress("nilma@anicha.com.br", utf8_decode("Nilma"));
             $mail->AddAddress("jorg@anicha.com.br", utf8_decode("Joerg"));
-            $mail->AddAddress("falecom@anicha.com.br", utf8_decode("Anicha"));
             $mail->AddBCC("pachecoteixeira@gmail.com", utf8_decode("Lucas Pacheco Teixeira"));
 
             // REMETENTE

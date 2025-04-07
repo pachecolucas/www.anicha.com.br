@@ -6,14 +6,14 @@ class IndexController extends AbstractController {
 
     public function indexAction() {
         $this->view->chamadas = array(
-            "casa" => array("sm-title" => "Agora com atividades on-line", "lg-title" => "tudo no seu tempo <br>e no conforto da sua casa", "link" => ""),
+            // "casa" => array("sm-title" => "Agora com atividades on-line", "lg-title" => "tudo no seu tempo <br>e no conforto da sua casa", "link" => ""),
             "sala" => array("sm-title" => "para te (re)conectar", "lg-title" => "Um ambiente de<br>muito carinho", "link" => ""),
         );
 
         $this->view->chamadas2 = array(
             array("Holopráxis", "Atividades semanais (algumas gratuitas) para estar sempre conectado.", "/template/images/img13.jpg", "/holopraxis"),
             array("Atendimentos", "Ámanae, Respiração Integrativa, Barra de Access, Reiki, Coaching de Vida...", "/template/images/img14.jpg", "/atendimento"),
-            array("Pós-Graduação", "Pós-graduação em TTI, Terapias Transpessoais Integrativas.", "/template/images/img10.jpg", "/formacao/tti"),
+            // array("Pós-Graduação", "Pós-graduação em TTI, Terapias Transpessoais Integrativas.", "/template/images/img10.jpg", "/formacao/tti"),
         );
     }
 

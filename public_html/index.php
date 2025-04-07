@@ -31,8 +31,8 @@ define("LIBRARY_PATH", PUBLIC_PATH . "/../library"); // zend, eliti, etc...
 define("SITE", "http://anicha.com.br"); // mudar quando publicado
 define("SITENAME", "Anicha");
 define("MODULE_ADMIN", "epanel");
-define("TELEFONE", "(47) 3041-4485 | (47) 99163-6474");
-define("EMAIL", "falecom@anicha.com.br");
+define("TELEFONE", "(47) 99977-0213");
+define("EMAIL", "nilma@anicha.com.br");
 
 /**
  * Onde buscar os arquivos

@@ -1,0 +1,13 @@
+version: "1"
+
+services:
+  php5:
+    image: php:5-apache
+    volumes:
+      - ./public_html:/var/www/html
+      - ./library:/var/www/library
+      - ./application:/var/www/application
+    ports:
+      - "8080:80"
+
+    command: bash -c "a2enmod rewrite && apache2-foreground"

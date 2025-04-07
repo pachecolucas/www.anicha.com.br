@@ -29,17 +29,17 @@ abstract class AbstractController extends Eliti_Controller {
         $menu->add(new MenuItem("Atendimentos", "atendimento", array(
             new MenuItem("Ámanae", "/atendimento/amanae"),
             new MenuItem("Apometria", "/atendimento/apometria"),
-            new MenuItem("Barra de Access", "/atendimento/barra-de-access"),
-            new MenuItem("Coaching de Vida", "/atendimento/coaching-de-vida"),
+            // new MenuItem("Barra de Access", "/atendimento/barra-de-access"),
+            // new MenuItem("Coaching de Vida", "/atendimento/coaching-de-vida"),
             new MenuItem("Frequências de Brilho", "/atendimento/frequencias-de-brilho"),
             new MenuItem("Polaridade Sistêmica", "/atendimento/polaridade-sistemica"),
             new MenuItem("Processo de Transformação Emocional", "/atendimento/pte"),
-            new MenuItem("Reiki", "/atendimento/reiki"),
-            new MenuItem("Respiração Integrativa", "/atendimento/respiracao-integrativa"),
+            // new MenuItem("Reiki", "/atendimento/reiki"),
+            // new MenuItem("Respiração Integrativa", "/atendimento/respiracao-integrativa"),
                 ), Menu::ATENDIMENTO));
         // $menu->add(new MenuItem("Pós-graduação", "/tti"));
         $menu->add(new MenuItem("Formações", "formacao", array(
-            new MenuItem("<small>PÓS-GRADUAÇÃO</small><br>Terapias Transpessoais Integrativas", "/tti"),
+            // new MenuItem("<small>PÓS-GRADUAÇÃO</small><br>Terapias Transpessoais Integrativas", "/tti"),
             new MenuItem("<small>CURSO ABERTO</small><br>Terapias Energéticas Multidimensionais", "/tem"),
                 ), Menu::ATENDIMENTO));
         $menu->add(new MenuItem("Contato", "/contato"));
@@ -49,9 +49,7 @@ abstract class AbstractController extends Eliti_Controller {
          * TELEFONES
          */
         $this->view->telefones = array(
-            "(47) 3330-4485",
-            "(47) 99184-5442",
-            "(47) 99977-0213",
+            "(47) 99977-0213"
         );
 
         /**
