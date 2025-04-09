@@ -18,7 +18,7 @@ abstract class AbstractController extends Eliti_Controller {
         $menu = new Menu();
         $menu->add(new MenuItem("<i class='fa fa-home'></i>", "/"));
         $menu->add(new MenuItem("Quem somos", "/quem-somos"));
-        $menu->add(new MenuItem("Agenda", "/agenda"));
+        // $menu->add(new MenuItem("Agenda", "/agenda"));
         $menu->add(new MenuItem("Holopráxis", "holopraxis", array(
             // new MenuItem("Círculo Meditações", "/holopraxis/meditacao"),
             new MenuItem("Danças Circulares", "/holopraxis/dancas-circulares"),
