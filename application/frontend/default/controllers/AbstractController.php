@@ -216,24 +216,24 @@ class Servicos {
         return array(
             self::MEDITACAO,
             self::DANCAS,
-            self::YOGA,
+            // self::YOGA,
         );
     }
 
     public function getAtentimentos() {
         return array(
             self::AMANAE,
-            self::TTE,
-            self::BARRADEACCESS,
-            self::RESPIRACAO,
-            self::COACHING,
+            // self::TTE,
+            // self::BARRADEACCESS,
+            // self::RESPIRACAO,
+            // self::COACHING,
             self::FREQUENCIA,
         );
     }
 
     public function getFormacoes() {
         return array(
-            self::TTI,
+            // self::TTI,
             self::TEM,
         );
     }
